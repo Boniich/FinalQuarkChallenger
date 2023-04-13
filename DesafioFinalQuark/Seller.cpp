@@ -1,9 +1,10 @@
 #include "Seller.h"
+#include "Quotation.h";
 #include <string>
 
 using namespace std;
 
-Seller::Seller() 
+Seller::Seller() : _quotation(new Quotation())
 {
 
 }
@@ -23,4 +24,9 @@ string Seller:: showSellerFullName()
 int Seller::showSellerId()
 {
 	return sellerId;
+}
+
+void Seller::makeQuotation()
+{
+	_quotation->makeQuotation();
 }

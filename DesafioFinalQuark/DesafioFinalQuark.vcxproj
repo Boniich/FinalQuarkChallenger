@@ -129,13 +129,17 @@
   <ItemGroup>
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Presenter.cpp" />
+    <ClCompile Include="Quotation.cpp" />
     <ClCompile Include="Seller.cpp" />
+    <ClCompile Include="Shop.cpp" />
     <ClCompile Include="View.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="IView.h" />
     <ClInclude Include="Presenter.h" />
+    <ClInclude Include="Quotation.h" />
     <ClInclude Include="Seller.h" />
+    <ClInclude Include="Shop.h" />
     <ClInclude Include="View.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
