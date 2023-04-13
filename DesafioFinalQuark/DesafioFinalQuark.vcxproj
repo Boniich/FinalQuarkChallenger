@@ -133,6 +133,7 @@
     <ClCompile Include="View.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="IView.h" />
     <ClInclude Include="Presenter.h" />
     <ClInclude Include="Seller.h" />
     <ClInclude Include="View.h" />

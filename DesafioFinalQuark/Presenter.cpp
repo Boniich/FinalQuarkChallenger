@@ -1,23 +1,22 @@
 #include "Presenter.h";
+#include "IView.h";
 #include "Seller.h";
 #include <iostream>;
 
 using namespace std;
 
-//pregunta: que significa los dos puntos en un constructor
-Presenter::Presenter() : _seller(new Seller())
+Presenter::Presenter(IView* view) : _view(view), _seller(new Seller())
 {
 
 }
 
 Presenter::~Presenter()
 {
-
+	delete _seller;
 }
 
 void Presenter::presentSeller() {
 
 	string sellerName = _seller->showSellerFullName();
-	cout << sellerName << std::endl;
-	//we need the IView method
+	_view->showText(sellerName);
 }

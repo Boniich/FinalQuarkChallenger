@@ -2,13 +2,13 @@
 #include "Presenter.h";
 #include <iostream>
 
+using namespace std;
+
 View::View()
 {
-	//inicia el programa (borrar funcion despues)
-	_presenter = new Presenter();
+	_presenter = new Presenter(this);
 	//delete later
 	_presenter->presentSeller();
-	showViewWorking();
 }
 
 View::~View()
@@ -16,7 +16,14 @@ View::~View()
 	delete _presenter;
 };
 
-void View::showViewWorking() {
 
-	std::cout << working << std::endl;
+void View::showText(const char* text) {
+
+	cout << text << std::endl;
 }
+
+void View::showText(const string& text) {
+
+	cout << text << std::endl;
+}
+
