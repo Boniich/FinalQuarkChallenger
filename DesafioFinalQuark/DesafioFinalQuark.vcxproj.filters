@@ -42,6 +42,12 @@
     <ClCompile Include="Quotation.cpp">
       <Filter>Model</Filter>
     </ClCompile>
+    <ClCompile Include="Clothes.cpp">
+      <Filter>Model</Filter>
+    </ClCompile>
+    <ClCompile Include="Pants.cpp">
+      <Filter>Model</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="View.h">
@@ -60,6 +66,12 @@
       <Filter>Model</Filter>
     </ClInclude>
     <ClInclude Include="Quotation.h">
+      <Filter>Model</Filter>
+    </ClInclude>
+    <ClInclude Include="Clothes.h">
+      <Filter>Model</Filter>
+    </ClInclude>
+    <ClInclude Include="Pants.h">
       <Filter>Model</Filter>
     </ClInclude>
   </ItemGroup>
