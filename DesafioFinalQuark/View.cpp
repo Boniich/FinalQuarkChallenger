@@ -9,6 +9,7 @@ const string separator = "---------------------------------------------";
 View::View()
 {
 	_presenter = new Presenter(this);
+	//_presenter->makeQuotation();
 	showInitialMenu();
 }
 
@@ -66,6 +67,141 @@ void View::showHistorySeller()
 
 }
 
+void View::showQuotationMenu()
+{
+	string option = "";
+	double unitaryPrice;
+	int amount;
+
+	do
+	{
+		showText("COTIZADOR EXPRESS - COTIZAR");
+		showText(separator);
+		showText("Presiona 3 para volver al menu principal");
+		showText(separator);
+		showText("PASO 1: Selecciona la prenda a cotizar: ");
+		showText("1) Camisa");
+		showText("2) Pantalon");
+		showText(separator);
+		
+		cin >> option;
+		_presenter->chooseClothe(option.c_str());
+
+		if (option == "1")
+		{
+
+			//system("cls");
+			showText("COTIZADOR EXPRESS - COTIZAR");
+			showText(separator);
+			showText("Presiona 3 para volver al menu principal");
+			showText(separator);
+			showText("PASO 2.a: La camisa a cotizar, ¿Es manga corta?: ");
+			showText("1) Si");
+			showText("2) No");
+			cin >> option;
+			system("cls");
+
+
+			system("cls");
+			showText("COTIZADOR EXPRESS - COTIZAR");
+			showText(separator);
+			showText("Presiona 3 para volver al menu principal");
+			showText(separator);
+			showText("PASO 2.b: La camisa a cotizar, ¿Es cuello mao?: ");
+			showText("1) Si");
+			showText("2) No");
+			cin >> option;
+			system("cls");
+
+
+		}
+		else if (option == "2") {
+
+			system("cls");
+			showText("COTIZADOR EXPRESS - COTIZAR");
+			showText(separator);
+			showText("Presiona 3 para volver al menu principal");
+			showText(separator);
+			showText("PASO 2: El pantalon a cotizar, ¿Es Chupin?: ");
+			showText("1) Si");
+			showText("2) No");
+			cin >> option;
+			_presenter->selectingTypePants(option.c_str());
+			system("cls");
+		}
+		else {
+			showText("Opcion no valida");
+		}
+		//analizamos si la ropa es standar o premium
+
+		showText("COTIZADOR EXPRESS - COTIZAR");
+		showText(separator);
+		showText("Presiona 3 para volver al menu principal");
+		showText(separator);
+		showText("PASO 3: Seleccione la calidad de la prenda: ");
+		showText("1) Standard");
+		showText("2) Premium");
+		
+		cin >> option;
+		_presenter->selectingQualityClothe(option.c_str());
+		system("cls");
+
+
+		// se ingresa el precio unatio
+
+		showText("COTIZADOR EXPRESS - COTIZAR");
+		showText(separator);
+		showText("Presiona 3 para volver al menu principal");
+		showText(separator);
+		showText("PASO 4: Ingrese el precio unitario de la prenda a cotizar: ");
+		
+		cin >> unitaryPrice;
+		_presenter->selectingUnitaryPrice(unitaryPrice);
+		showText(separator);
+		system("cls");
+
+		// se muestran las cantidades de unidades y se pide ingresar la cantidad de unidades a cotizar
+
+		showText("COTIZADOR EXPRESS - COTIZAR");
+		showText(separator);
+		showText("Presiona 3 para volver al menu principal");
+		showText(separator);
+		showText("INFORMACION: ");
+		//se debe buscar la forma de mostrar un numero dentro de una variable
+		showText("EXISTE: X CANTIDAD DE UNIDADES EN STOCK DE LA PRENDA SELECCIONADA");
+		showText("PASO 5: Ingresa la cantidad de unidades a cotizar");
+
+		cin >> amount;
+		_presenter->setAmount(amount);
+		showText(separator);
+		system("cls");
+
+		// mostramos el resultado de la cotizacion
+
+		showText("COTIZADOR EXPRESS - COTIZAR");
+		showText(separator);
+		showText("Presiona 3 para volver al menu principal");
+		showText(separator);
+
+		showText("Numero de identifiacion: ");
+		showText("Fecha y hora de la cotizacion: ");
+		showText("Codigo del vendedor: ");
+		showText("Prenda Cotizada: ");
+		showText("Precio Unitario: ");
+		showText("Cantidades de unidades cotizadas: ");
+		showText("precio final: ");
+
+		showText(separator);
+		showText("Presiona 3 para volver al menu principal");
+		showText(separator);
+		cin >> option;
+		system("cls");
+
+	} while (option != "3");
+
+	
+}
+
 void View::showInitialMenu() 
 {
 	string option;
@@ -103,7 +239,11 @@ void View::optionSelected(const char* option, bool& exit)
 		std::cin.get();
 		exit = false;
 	}
-	else {
+	else if (str_option == "2")
+	{
+		showQuotationMenu();
+
+	}else {
 		showText("Cualquier opcion");
 	}
 }

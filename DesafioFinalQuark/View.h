@@ -22,5 +22,6 @@ private:
 	void showText(const string& text) override;
 	void showText(const string& text, int value) override;
 	void showHistorySeller();
+	void showQuotationMenu();
 
 };
