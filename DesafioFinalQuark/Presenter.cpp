@@ -1,12 +1,14 @@
 #include "Presenter.h";
 #include "IView.h";
 #include "Seller.h";
+#include "Quotation.h";
 #include "Shop.h";
 #include <iostream>;
+#include <string>;
 
 using namespace std;
 
-Presenter::Presenter(IView* view) : _view(view), _seller(new Seller()), _shop(new Shop)
+Presenter::Presenter(IView* view) : _view(view), _seller(new Seller()), _shop(new Shop), _quotation(new Quotation())
 {
 
 }
@@ -28,7 +30,32 @@ void Presenter::showInfoShop()
 	_view->showText(shopName);
 }
 
+void Presenter::setAmount(const int amount)
+{
+	_quotation->setAmount(amount);
+}
+
 void Presenter::makeQuotation()
 {
+	_shop->stockPants();
+}
 
+void Presenter::chooseClothe(const char* option)
+{
+	_quotation->selectingClothe(option);
+}
+
+void Presenter::selectingQualityClothe(const char* option)
+{
+	_quotation->selectingQualityClothe(option);
+}
+
+void Presenter::selectingUnitaryPrice(const double unitaryPrice)
+{
+	_quotation->selectingUnitaryPrice(unitaryPrice);
+}
+
+void Presenter::selectingTypePants(const char* option)
+{
+	_quotation->selectingTypePants(option);
 }
