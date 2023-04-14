@@ -47,7 +47,7 @@ void Quotation::selectingClothe(string option)
 	}
 	else if (option == "2")
 	{
-		_clothes = new Pants("","");
+		_clothes = new Pants("Pantalones","","");
 	}
 }
 
@@ -103,7 +103,35 @@ void Quotation::setAmount(const int amount)
 
 void Quotation::makeQuotation()
 {
-	cout << "Realizando cotizacion" << endl;
+	double price = _clothes->showUnitaryPrice();
+
+	_id++;
+	
+
+	//tipo de prenda
+
+	if (_clothes->showTypeChothe() == "Camisa")
+	{
+
+	}
+	else {
+
+		if (static_cast<Pants*>(_clothes)->showTypePants() == "Chupin")
+		{
+			price -= (_clothes->showUnitaryPrice() * 12) / 100;
+		}
+	}
+
+
+	// calidad
+	
+	if (_clothes->showQuality() == "Premium") {
+
+		price += (price * 30) / 100;
+	}
+
+	_finalPrice = price * getAmount();
+	cout << _finalPrice;
 }
 
 

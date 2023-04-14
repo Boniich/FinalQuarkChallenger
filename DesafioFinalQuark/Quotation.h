@@ -10,7 +10,7 @@ class Clothes;
 class Quotation
 {
 private: 
-	int _id;
+	int _id = 0;
 	string _date;
 	int _sellerId;
 	Clothes* _clothes = NULL;
