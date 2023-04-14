@@ -37,7 +37,7 @@ void Presenter::setAmount(const int amount)
 
 void Presenter::makeQuotation()
 {
-	_shop->stockPants();
+	_quotation->makeQuotation();
 }
 
 void Presenter::chooseClothe(const char* option)
