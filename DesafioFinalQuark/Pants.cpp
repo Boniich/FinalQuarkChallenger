@@ -1,7 +1,7 @@
 #include "Pants.h";
 
 
-Pants::Pants(string quality, string typePants):Clothes(quality)
+Pants::Pants(string typeClothe, string quality, string typePants):Clothes(typeClothe, quality)
 {
 	_typePants = typePants;
 }
