@@ -35,9 +35,9 @@ void Presenter::setAmount(const int amount)
 	_quotation->setAmount(amount);
 }
 
-void Presenter::makeQuotation()
+void Presenter::makeQuotation(const int sellerId)
 {
-	_quotation->makeQuotation();
+	_quotation->makeQuotation(sellerId);
 }
 
 void Presenter::chooseClothe(const char* option)
@@ -67,4 +67,10 @@ void Presenter::selectingTypeShirtNeck(const char* option)
 void Presenter::selectingTypePants(const char* option)
 {
 	_quotation->selectingTypePants(option);
+}
+
+void Presenter::showQuotationResult()
+{
+	string result = _quotation->getResultQuotation();
+	_view->showText(result);
 }
