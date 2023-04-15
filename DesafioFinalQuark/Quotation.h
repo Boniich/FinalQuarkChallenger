@@ -35,6 +35,11 @@ public:
 	void selectingQualityClothe(string option);
 	void selectingUnitaryPrice(double unitaryPrice);
 
+	// clothes method - shirts
+
+	void selectingTypeShirtArm(string option);
+	void selectingTypeShirtNeck(string option);
+
 	// clothes methods - pants
 
 	void selectingTypePants(string option);

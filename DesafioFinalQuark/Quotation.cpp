@@ -1,5 +1,6 @@
 #include "Quotation.h";
 #include "Pants.h";
+#include "Shirt.h";
 #include <iostream>
 
 using namespace std;
@@ -43,7 +44,7 @@ void Quotation::selectingClothe(string option)
 {
 	if (option == "1")
 	{
-		
+		_clothes = new Shirt("Camisa", "", "", "");
 	}
 	else if (option == "2")
 	{
@@ -70,6 +71,44 @@ void Quotation::selectingUnitaryPrice(double unitaryPrice)
 {
 	_clothes->setUnitaryPrice(unitaryPrice);
 }
+
+// Shirt method
+
+void Quotation::selectingTypeShirtArm(string option)
+{
+
+	if (option == "1")
+	{
+		// definimos si la camisa es manga corta
+		static_cast<Shirt*>(_clothes)->setArmType("Manga Larga");
+	}
+	else if (option == "2")
+	{
+		// definimos si la camisa es manga larga
+
+		static_cast<Shirt*>(_clothes)->setArmType("Manga Corta");
+	}
+}
+
+void Quotation::selectingTypeShirtNeck(string option)
+{
+
+	if (option == "1")
+	{
+		// definimos si la camisa es cuello mao
+		static_cast<Shirt*>(_clothes)->setNeckType("Cuello Mao");
+	}
+	else if (option == "2")
+	{
+		// definimos si la camisa es cuello comun
+
+		static_cast<Shirt*>(_clothes)->setNeckType("Cuello Comun");
+	}
+}
+
+
+
+// Pants method
 
 void Quotation::selectingTypePants(string option)
 {
