@@ -1,6 +1,7 @@
 #include "Quotation.h";
 #include "Pants.h";
 #include "Shirt.h";
+#include <ctime>
 #include <iostream>
 
 using namespace std;
@@ -17,7 +18,7 @@ Quotation::~Quotation()
 
 int Quotation::getQuotationId()
 {
-	return 0;
+	return _id;
 }
 void Quotation::setQuotationId()
 {
@@ -25,7 +26,21 @@ void Quotation::setQuotationId()
 }
 
 //date
-//
+
+void Quotation::saveCurrentDataTime()
+{
+	string day, month, year, hour, min;
+	struct tm newtime;
+	time_t t = time(nullptr);
+	localtime_s(&newtime,&t);
+	day = to_string(newtime.tm_mday);
+	month = to_string(1+ newtime.tm_mon);
+	year = to_string(1900 + newtime.tm_year);
+	hour = to_string(newtime.tm_hour);
+	min = to_string(newtime.tm_min);
+ 
+	_date = day + "/" + month + "/" +year + " " + hour+":"+ min;
+}
 
 
 int Quotation::getSellerId()
@@ -180,7 +195,7 @@ void Quotation::makeQuotation()
 	}
 
 	_finalPrice = price * getAmount();
-	cout << _finalPrice;
+	saveCurrentDataTime();
 }
 
 

@@ -17,6 +17,8 @@ private:
 	int _amount = 0;
 	double _finalPrice;
 
+	void saveCurrentDataTime();
+
 public:
 	Quotation();
 	~Quotation();
