@@ -50,7 +50,8 @@ public:
 	void setAmount(const int amount);
 
 
-	void makeQuotation();
+	void makeQuotation(const int sellerId);
 	void showHistoryQuotationBySeller(const int seller_id);
+	string getResultQuotation();
 
 };

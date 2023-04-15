@@ -2,6 +2,7 @@
 #include "Pants.h";
 #include "Shirt.h";
 #include <ctime>
+#include <iomanip>
 #include <iostream>
 
 using namespace std;
@@ -14,6 +15,40 @@ Quotation::Quotation()
 Quotation::~Quotation()
 {
 
+}
+
+string Quotation::getResultQuotation()
+{
+
+
+
+	string id = "Numero de identifiacion: " + to_string(_id);
+	string date = "Fecha y hora de la cotizacion: " + _date;
+	string sellerId = "Codigo del vendedor: " + to_string( _sellerId);
+	string clothe = "Prenda Cotizada : " + _clothes->showTypeChothe() + " | ";
+
+	if (_clothes->showTypeChothe() == "camisa")
+	{
+		clothe += static_cast<Shirt*>(_clothes)->showArmType();
+	}
+	else {
+		clothe += static_cast<Pants*>(_clothes)->showTypePants();
+	}
+
+	
+	clothe +=  "| " + _clothes->showQuality();
+
+	string unitaryPrice = "Precio Unitario: $" + to_string(_clothes->showUnitaryPrice());
+	string amount = "Cantidades de unidades cotizadas: " + to_string(getAmount());
+	string finalPrice = "Precio final: " + to_string(_finalPrice);
+
+	return  id + "\n" 
+		+ date + "\n" 
+		+ sellerId + "\n" 
+		+ clothe + "\n" 
+		+ unitaryPrice + "\n" 
+		+ amount + "\n" 
+		+ finalPrice;
 }
 
 int Quotation::getQuotationId()
@@ -156,11 +191,12 @@ void Quotation::setAmount(const int amount)
 }
 
 
-void Quotation::makeQuotation()
+void Quotation::makeQuotation(const int sellerId)
 {
-	double price = _clothes->showUnitaryPrice();
 
 	_id++;
+	double price = _clothes->showUnitaryPrice();
+	setSellerId(sellerId);
 	
 
 	//tipo de prenda
