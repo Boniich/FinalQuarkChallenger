@@ -80,13 +80,14 @@ void Quotation::selectingTypeShirtArm(string option)
 	if (option == "1")
 	{
 		// definimos si la camisa es manga corta
-		static_cast<Shirt*>(_clothes)->setArmType("Manga Larga");
+		static_cast<Shirt*>(_clothes)->setArmType("Manga Corta");
+		
 	}
 	else if (option == "2")
 	{
 		// definimos si la camisa es manga larga
-
-		static_cast<Shirt*>(_clothes)->setArmType("Manga Corta");
+		static_cast<Shirt*>(_clothes)->setArmType("Manga Larga");
+		
 	}
 }
 
@@ -152,6 +153,15 @@ void Quotation::makeQuotation()
 	if (_clothes->showTypeChothe() == "Camisa")
 	{
 
+		if (static_cast<Shirt*>(_clothes)->showArmType() == "Manga Corta") 
+		{
+			price -= (_clothes->showUnitaryPrice() * 10) / 100;
+		}
+
+		if (static_cast<Shirt*>(_clothes)->showNeckType() == "Cuello Mao")
+		{
+			price += (price * 3) / 100;
+		}
 	}
 	else {
 
