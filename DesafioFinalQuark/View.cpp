@@ -9,7 +9,6 @@ const string separator = "---------------------------------------------";
 View::View()
 {
 	_presenter = new Presenter(this);
-	//_presenter->makeQuotation();
 	showInitialMenu();
 }
 
@@ -90,7 +89,7 @@ void View::showQuotationMenu()
 		if (option == "1")
 		{
 
-			//system("cls");
+			system("cls");
 			showText("COTIZADOR EXPRESS - COTIZAR");
 			showText(separator);
 			showText("Presiona 3 para volver al menu principal");
@@ -99,6 +98,7 @@ void View::showQuotationMenu()
 			showText("1) Si");
 			showText("2) No");
 			cin >> option;
+			_presenter->selectingTypeShirtArm(option.c_str());
 			system("cls");
 
 
@@ -111,6 +111,7 @@ void View::showQuotationMenu()
 			showText("1) Si");
 			showText("2) No");
 			cin >> option;
+			_presenter->selectingTypeShirtNeck(option.c_str());
 			system("cls");
 
 
@@ -177,7 +178,7 @@ void View::showQuotationMenu()
 		system("cls");
 
 		// mostramos el resultado de la cotizacion
-
+		_presenter->makeQuotation();
 		showText("COTIZADOR EXPRESS - COTIZAR");
 		showText(separator);
 		showText("Presiona 3 para volver al menu principal");
