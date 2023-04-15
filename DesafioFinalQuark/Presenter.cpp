@@ -55,6 +55,15 @@ void Presenter::selectingUnitaryPrice(const double unitaryPrice)
 	_quotation->selectingUnitaryPrice(unitaryPrice);
 }
 
+void Presenter::selectingTypeShirtArm(const char* option)
+{
+	_quotation->selectingTypeShirtArm(option);
+}
+void Presenter::selectingTypeShirtNeck(const char* option)
+{
+	_quotation->selectingTypeShirtNeck(option);
+}
+
 void Presenter::selectingTypePants(const char* option)
 {
 	_quotation->selectingTypePants(option);

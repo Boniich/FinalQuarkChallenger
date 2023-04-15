@@ -28,6 +28,10 @@ public:
 	void selectingQualityClothe(const char* option);
 	void selectingUnitaryPrice(const double unitaryPrice);
 	void setAmount(const int amount);
+
+	void selectingTypeShirtArm(const char* option);
+	void selectingTypeShirtNeck(const char* option);
+
 	void selectingTypePants(const char* option);
 	void makeQuotation();
 	
