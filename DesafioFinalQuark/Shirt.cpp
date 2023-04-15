@@ -15,7 +15,7 @@ string Shirt::showNeckType()
 }
 void Shirt::setNeckType(string neckType)
 {
-	_neckType = _neckType;
+	_neckType = neckType;
 }
 string Shirt::showArmType()
 {
