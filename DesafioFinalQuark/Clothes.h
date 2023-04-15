@@ -14,7 +14,7 @@ private:
 	double _unitaryPrice;
 	int _stockAmount;
 public:
-	Clothes(string typeClothe,string quality);
+	Clothes(string typeClothe,string quality,int stockAmount);
 	~Clothes();
 	string showTypeChothe();
 	string showQuality();

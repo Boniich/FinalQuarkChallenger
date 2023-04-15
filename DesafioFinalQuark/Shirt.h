@@ -1,5 +1,6 @@
 #pragma once
 #include "Clothes.h";
+#include <iostream>
 #include <string>;
 
 using namespace std;
@@ -11,7 +12,7 @@ private:
 	string _neckType;
 	string _armType;
 public:
-	Shirt(string typeClothe, string quality, string neckType, string armType);
+	Shirt(string typeClothe, string quality,int stockAmount, string neckType, string armType);
 	string showNeckType();
 	void setNeckType(string neckType);
 	string showArmType();

@@ -2,8 +2,8 @@
 
 
 Shirt::Shirt(
-	string typeClothe, string quality, 
-	string neckType, string armType):Clothes(typeClothe, quality)
+	string typeClothe, string quality, int stockAmount,
+	string neckType, string armType):Clothes(typeClothe, quality, stockAmount)
 {
 	_neckType = neckType;
 	_armType = armType;

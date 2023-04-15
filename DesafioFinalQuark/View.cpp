@@ -82,7 +82,7 @@ void View::showQuotationMenu()
 		showText("1) Camisa");
 		showText("2) Pantalon");
 		showText(separator);
-		
+
 		cin >> option;
 		_presenter->chooseClothe(option.c_str());
 
@@ -142,7 +142,7 @@ void View::showQuotationMenu()
 		showText("PASO 3: Seleccione la calidad de la prenda: ");
 		showText("1) Standard");
 		showText("2) Premium");
-		
+
 		cin >> option;
 		_presenter->selectingQualityClothe(option.c_str());
 		system("cls");
@@ -155,7 +155,7 @@ void View::showQuotationMenu()
 		showText("Presiona 3 para volver al menu principal");
 		showText(separator);
 		showText("PASO 4: Ingrese el precio unitario de la prenda a cotizar: ");
-		
+
 		cin >> unitaryPrice;
 		_presenter->selectingUnitaryPrice(unitaryPrice);
 		showText(separator);
@@ -178,19 +178,13 @@ void View::showQuotationMenu()
 		system("cls");
 
 		// mostramos el resultado de la cotizacion
-		_presenter->makeQuotation();
+		_presenter->makeQuotation(1);
 		showText("COTIZADOR EXPRESS - COTIZAR");
 		showText(separator);
 		showText("Presiona 3 para volver al menu principal");
 		showText(separator);
 
-		showText("Numero de identifiacion: ");
-		showText("Fecha y hora de la cotizacion: ");
-		showText("Codigo del vendedor: ");
-		showText("Prenda Cotizada: ");
-		showText("Precio Unitario: ");
-		showText("Cantidades de unidades cotizadas: ");
-		showText("precio final: ");
+		_presenter->showQuotationResult();
 
 		showText(separator);
 		showText("Presiona 3 para volver al menu principal");

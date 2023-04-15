@@ -9,7 +9,7 @@ private:
 	string _typePants;
 
 public:
-	Pants(string typeClothe,string quality,string typePants);
+	Pants(string typeClothe,string quality, int stockAmount, string typePants);
 	string showTypePants();
 	void setTypePants(string typePants);
 };

@@ -23,6 +23,19 @@ string Shop::showInfoSeller()
 
 void Shop::stockPants()
 {
+
+	Pants* normalStandarPants = new Pants("Pantalones", "Standard",250, "Normal");
+	Pants* normalPremiumPants = new Pants("Pantalones", "Premium", 250, "Normal");
+
+	Pants* chupinStandarPants = new Pants("Pantalones", "Standard", 750, "Chupin");
+	Pants* chupinPremiumPants = new Pants("Pantalones", "Premium", 750, "Chupin");
+
+
+	_clothes.push_back(normalStandarPants);
+	_clothes.push_back(normalPremiumPants);
+	_clothes.push_back(chupinStandarPants);
+	_clothes.push_back(chupinPremiumPants);
+
 	/*
 	Pants* _pantsStandard = new Pants("Standard", "Chupin");
 	Pants* _pantsPremium = new Pants("Premium", "Chupin");

@@ -1,9 +1,10 @@
 #include "Clothes.h";
 
-Clothes::Clothes(string typeClothe,string quality)
+Clothes::Clothes(string typeClothe,string quality, int stockAmount)
 {
 	_typeClothe = typeClothe;
 	_quality = quality;
+	_stockAmount = stockAmount;
 }
 
 Clothes::~Clothes()

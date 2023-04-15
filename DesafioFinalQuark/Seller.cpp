@@ -4,7 +4,7 @@
 
 using namespace std;
 
-Seller::Seller() : _quotation(new Quotation())
+Seller::Seller()
 {
 
 }
@@ -24,9 +24,4 @@ string Seller:: showSellerFullName()
 int Seller::showSellerId()
 {
 	return sellerId;
-}
-
-void Seller::makeQuotation()
-{
-	_quotation->makeQuotation();
 }

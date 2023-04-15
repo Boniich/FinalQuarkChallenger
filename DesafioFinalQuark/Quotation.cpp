@@ -94,11 +94,11 @@ void Quotation::selectingClothe(string option)
 {
 	if (option == "1")
 	{
-		_clothes = new Shirt("Camisa", "", "", "");
+		_clothes = new Shirt("Camisa", "",0,"", "");
 	}
 	else if (option == "2")
 	{
-		_clothes = new Pants("Pantalones","","");
+		_clothes = new Pants("Pantalones","", 0,"");
 	}
 }
 
