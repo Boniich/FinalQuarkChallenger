@@ -23,6 +23,7 @@ string Shop::showInfoSeller()
 
 void Shop::stockPants()
 {
+	/*
 	Pants* _pantsStandard = new Pants("Standard", "Chupin");
 	Pants* _pantsPremium = new Pants("Premium", "Chupin");
 	Pants* _normalPantsStandard = new Pants("Standard", "Normal");
@@ -52,7 +53,7 @@ void Shop::stockPants()
 	// nos devuelve el tamaño de la lista
 	cout << _clothes.size();
 	
-
+	*/
 	
 	
 }
