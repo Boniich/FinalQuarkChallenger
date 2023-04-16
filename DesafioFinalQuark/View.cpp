@@ -72,6 +72,7 @@ void View::showQuotationMenu()
 	string option = "";
 	double unitaryPrice;
 	int amount;
+	bool isNotAmountMoreThanStock = false;
 
 	do
 	{
@@ -170,13 +171,33 @@ void View::showQuotationMenu()
 		showText(separator);
 		showText("INFORMACION: ");
 		//se debe buscar la forma de mostrar un numero dentro de una variable
-		_presenter->showStockAvailable();
-		showText("PASO 5: Ingresa la cantidad de unidades a cotizar");
 
-		cin >> amount;
-		_presenter->setAmount(amount);
-		showText(separator);
-		system("cls");
+		do
+		{
+			_presenter->showStockAvailable();
+			showText("PASO 5: Ingresa la cantidad de unidades a cotizar");
+
+			cin >> amount;
+
+			if (amount > _presenter->getClotheAmountFromStock())
+			{
+				system("cls");
+				showText("COTIZADOR EXPRESS - COTIZAR");
+				showText(separator);
+				showText("Presiona 3 para volver al menu principal");
+				showText(separator);
+				showText("INFORMACION: ");
+				showText("DATO INVALIDO: La cantidad ingresada supera lo disponible en stock, por favor, ingresa un valor valido");
+				showText(separator);
+
+			}else {
+				_presenter->setAmount(amount);
+				isNotAmountMoreThanStock = true;
+				showText(separator);
+				system("cls");
+			}
+
+		} while (isNotAmountMoreThanStock != true);
 
 		// mostramos el resultado de la cotizacion
 		_presenter->makeQuotation(1);
