@@ -23,6 +23,9 @@ public:
 	void showInfoSeller();
 	void showInfoShop();
 
+	void stockClothes();
+	void showStockAvailable();
+
 	//quotation methos
 	void chooseClothe(const char* option);
 	void selectingQualityClothe(const char* option);

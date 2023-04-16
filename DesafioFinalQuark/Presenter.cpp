@@ -35,10 +35,10 @@ void Presenter::stockClothes()
 	_shop->stockPants();
 }
 
-void Presenter::showStockPants()
+void Presenter::showStockAvailable()
 {
 
-	string stock = _shop->showStockPants();
+	string stock = _shop->showStockAvailable();
 	_view->showText(stock);
 }
 
