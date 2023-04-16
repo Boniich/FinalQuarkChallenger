@@ -49,6 +49,8 @@ public:
 	int getAmount();
 	void setAmount(const int amount);
 
+	Clothes* getClotheData();
+
 
 	void makeQuotation(const int sellerId);
 	void showHistoryQuotationBySeller(const int seller_id);

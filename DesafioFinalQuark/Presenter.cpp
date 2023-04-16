@@ -30,47 +30,60 @@ void Presenter::showInfoShop()
 	_view->showText(shopName);
 }
 
+void Presenter::stockClothes()
+{
+	_shop->stockPants();
+}
+
+void Presenter::showStockPants()
+{
+
+	string stock = _shop->showStockPants();
+	_view->showText(stock);
+}
+
+
 void Presenter::setAmount(const int amount)
 {
-	_quotation->setAmount(amount);
+	_shop->getQuotationData()->setAmount(amount);
 }
 
 void Presenter::makeQuotation(const int sellerId)
 {
-	_quotation->makeQuotation(sellerId);
+	_shop->getQuotationData()->makeQuotation(sellerId);
 }
 
 void Presenter::chooseClothe(const char* option)
 {
-	_quotation->selectingClothe(option);
+	_shop->getQuotationData()->selectingClothe(option);
 }
 
 void Presenter::selectingQualityClothe(const char* option)
 {
-	_quotation->selectingQualityClothe(option);
+	_shop->getQuotationData()->selectingQualityClothe(option);
 }
 
 void Presenter::selectingUnitaryPrice(const double unitaryPrice)
 {
-	_quotation->selectingUnitaryPrice(unitaryPrice);
+	_shop->getQuotationData()->selectingUnitaryPrice(unitaryPrice);
 }
 
 void Presenter::selectingTypeShirtArm(const char* option)
 {
-	_quotation->selectingTypeShirtArm(option);
+	_shop->getQuotationData()->selectingTypeShirtArm(option);
 }
 void Presenter::selectingTypeShirtNeck(const char* option)
 {
-	_quotation->selectingTypeShirtNeck(option);
+	_shop->getQuotationData()->selectingTypeShirtNeck(option);
 }
 
 void Presenter::selectingTypePants(const char* option)
 {
-	_quotation->selectingTypePants(option);
+	_shop->getQuotationData()->selectingTypePants(option);
 }
 
 void Presenter::showQuotationResult()
 {
-	string result = _quotation->getResultQuotation();
+	string result = _shop->getQuotationData()->getResultQuotation();
 	_view->showText(result);
 }
