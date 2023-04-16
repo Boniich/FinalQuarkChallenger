@@ -48,7 +48,7 @@ void Presenter::setAmount(const int amount)
 	_shop->getQuotationData()->setAmount(amount);
 }
 
-void Presenter::makeQuotation(const int sellerId)
+void Presenter::makeQuotation()
 {
 	_shop->makeQuotation();
 }

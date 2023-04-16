@@ -36,7 +36,7 @@ public:
 	void selectingTypeShirtNeck(const char* option);
 
 	void selectingTypePants(const char* option);
-	void makeQuotation(const int sellerId);
+	void makeQuotation();
 
 	void showQuotationResult();
 	

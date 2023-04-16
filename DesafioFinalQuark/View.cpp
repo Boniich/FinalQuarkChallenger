@@ -200,7 +200,7 @@ void View::showQuotationMenu()
 		} while (isNotAmountMoreThanStock != true);
 
 		// mostramos el resultado de la cotizacion
-		_presenter->makeQuotation(1);
+		_presenter->makeQuotation();
 		showText("COTIZADOR EXPRESS - COTIZAR");
 		showText(separator);
 		showText("Presiona 3 para volver al menu principal");
