@@ -1,13 +1,15 @@
 #include "Shop.h";
 #include "Pants.h";
+#include "Shirt.h";
+#include "Quotation.h";
 #include <string>;
 #include <iostream>;
 
 using namespace std;
 
-Shop::Shop(){}
+Shop::Shop() {}
 
-Shop::~Shop(){}
+Shop::~Shop() {}
 
 string Shop::showInfoShop()
 {
@@ -18,55 +20,135 @@ string Shop::showInfoSeller()
 {
 	string id = to_string(_seller.showSellerId());
 
-	return _seller.showSellerFullName() + " | " + id ;
+	return _seller.showSellerFullName() + " | " + id;
+}
+
+Quotation* Shop::getQuotationData()
+{
+	return _quotation;
 }
 
 void Shop::stockPants()
 {
 
-	Pants* normalStandarPants = new Pants("Pantalones", "Standard",250, "Normal");
+	Pants* normalStandarPants = new Pants("Pantalones", "Standard", 250, "Normal");
 	Pants* normalPremiumPants = new Pants("Pantalones", "Premium", 250, "Normal");
 
 	Pants* chupinStandarPants = new Pants("Pantalones", "Standard", 750, "Chupin");
 	Pants* chupinPremiumPants = new Pants("Pantalones", "Premium", 750, "Chupin");
 
 
+	Shirt* shirtStandarShortArmMao = new Shirt("Camisa", "Standard", 100, "Cuello Mao", "Manga Corta");
+	Shirt* shirtPremiumShortArmMao = new Shirt("Camisa", "Premium", 100, "Cuello Mao", "Manga Corta");
+
 	_clothes.push_back(normalStandarPants);
 	_clothes.push_back(normalPremiumPants);
 	_clothes.push_back(chupinStandarPants);
 	_clothes.push_back(chupinPremiumPants);
 
-	/*
-	Pants* _pantsStandard = new Pants("Standard", "Chupin");
-	Pants* _pantsPremium = new Pants("Premium", "Chupin");
-	Pants* _normalPantsStandard = new Pants("Standard", "Normal");
-	Pants* _normalPantsPremium = new Pants("Premium", "Normal");
 
-	for (int e = 0; e < 750; e++) {
-		
-		_clothes.push_back(_pantsStandard);
-		_clothes.push_back(_pantsPremium);
-	}
-
-	for (int e = 0; e < 250; e++) {
-
-		_clothes.push_back(_normalPantsStandard);
-		_clothes.push_back(_normalPantsPremium);
-	}
-
-	list<Clothes*>::iterator it = _clothes.begin();
-
-	while (_pantsStandard->showQuality() == "Chupin") it++;
-	cout << *it;
-
-	/// funciona
-	auto pan = (Pants*)_clothes.front();
-	//cout << pan->showTypePants();
-
-	// nos devuelve el tamaño de la lista
-	cout << _clothes.size();
-	
-	*/
+	_clothes.push_back(shirtStandarShortArmMao);
+	_clothes.push_back(shirtPremiumShortArmMao);
+	//200
+	//_clothes.push_back(new Shirt("Camisa", "Standard", 100, "Cuello Mao", "Manga Corta"));
+	//_clothes.push_back(new Shirt("Camisa", "Premium", 100, "Cuello Mao", "Manga Corta"));
 	
 	
+	//300
+	_clothes.push_back(new Shirt("Camisa", "Standard", 150, "Cuello Comun", "Manga Corta"));
+	_clothes.push_back(new Shirt("Camisa", "Premium", 150,  "Cuello Comun","Manga Corta"));
+
+	//150
+	_clothes.push_back(new Shirt("Camisa", "Standard", 75,"Cuello Mao" ,"Manga Larga"));
+	_clothes.push_back(new Shirt("Camisa", "Premium", 75, "Cuello Mao", "Manga Larga"));
+
+	//350
+	_clothes.push_back(new Shirt("Camisa", "Standard", 175, "Cuello Comun", "Manga Larga"));
+	_clothes.push_back(new Shirt("Camisa", "Premium", 175, "Cuello Comun", "Manga Larga"));
+
 }
+
+
+string Shop::showStockAvailable() 
+{
+
+	int  stock = getClotheAmountFromStock();
+
+	return "EXISTE: " + to_string(stock) + " CANTIDAD DE UNIDADES EN STOCK DE LA PRENDA SELECCIONADA";
+
+}
+
+
+int Shop::getClotheAmountFromStock()
+{
+
+	int stock = 0;
+
+	for (Clothes* clothe : _clothes)
+	{
+
+		if (clothe->showTypeChothe() == getQuotationData()->getClotheData()->showTypeChothe()
+			&& clothe->showQuality() == getQuotationData()->getClotheData()->showQuality())
+		{
+			if (clothe->showTypeChothe() == "Camisa")
+			{
+				if (static_cast<Shirt*>(clothe)->showArmType() == static_cast<Shirt*>(getQuotationData()->getClotheData())->showArmType()
+					&& static_cast<Shirt*>(clothe)->showNeckType() == static_cast<Shirt*>(getQuotationData()->getClotheData())->showNeckType())
+				{
+
+					stock = clothe->showStockAmount();
+					return stock;
+
+				}
+			}
+			else {
+				if (static_cast<Pants*>(clothe)->showTypePants()
+					== static_cast<Pants*>(getQuotationData()->getClotheData())->showTypePants()) {
+					stock = clothe->showStockAmount();
+					return stock;
+				}
+			}
+
+		}
+	}
+
+}
+
+
+
+
+/*funciona bien
+string Shop::showStockPants()
+{
+
+	int stock = 0;
+
+	for (Clothes* clothe : _clothes)
+	{
+
+		if (clothe->showTypeChothe() == getQuotationData()->getClotheData()->showTypeChothe()
+			&& clothe->showQuality() == getQuotationData()->getClotheData()->showQuality())
+		{
+			if (clothe->showTypeChothe() == "Camisa")
+			{
+				if (static_cast<Shirt*>(clothe)->showArmType() == static_cast<Shirt*>(getQuotationData()->getClotheData())->showArmType()
+					&& static_cast<Shirt*>(clothe)->showNeckType() == static_cast<Shirt*>(getQuotationData()->getClotheData())->showNeckType())
+				{
+
+					stock = clothe->showStockAmount();
+					return "EXISTE: " + to_string(stock) + " CANTIDAD DE UNIDADES EN STOCK DE LA PRENDA SELECCIONADA";
+
+				}
+			}
+			else {
+				if (static_cast<Pants*>(clothe)->showTypePants()
+					== static_cast<Pants*>(getQuotationData()->getClotheData())->showTypePants()) {
+					stock = clothe->showStockAmount();
+					return "EXISTE: " + to_string(stock) + " CANTIDAD DE UNIDADES EN STOCK DE LA PRENDA SELECCIONADA";
+				}
+			}
+
+		}
+	}
+
+}*/
