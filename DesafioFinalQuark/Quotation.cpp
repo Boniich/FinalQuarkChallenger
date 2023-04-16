@@ -87,6 +87,11 @@ void Quotation::setSellerId(const int sellerId)
 	_sellerId = sellerId;
 }
 
+Clothes* Quotation::getClotheData()
+{
+	return _clothes;
+}
+
 // prenda
 
 
