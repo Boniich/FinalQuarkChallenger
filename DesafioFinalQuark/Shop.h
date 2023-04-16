@@ -26,7 +26,7 @@ public:
 	string showInfoSeller();
 	void loadStockClothes();
 	Quotation* getQuotationData();
+	void makeQuotation();
 	int getClotheAmountFromStock();
 	string showStockAvailable();
-	//metodos prenda
 };

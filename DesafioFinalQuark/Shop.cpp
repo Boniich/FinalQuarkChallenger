@@ -108,3 +108,10 @@ int Shop::getClotheAmountFromStock()
 	}
 
 }
+
+void Shop::makeQuotation()
+{
+	int sellerId = _seller.showSellerId();
+
+	getQuotationData()->makeQuotation(sellerId);
+}
