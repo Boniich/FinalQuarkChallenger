@@ -50,7 +50,7 @@ void Presenter::setAmount(const int amount)
 
 void Presenter::makeQuotation(const int sellerId)
 {
-	_shop->getQuotationData()->makeQuotation(sellerId);
+	_shop->makeQuotation();
 }
 
 void Presenter::chooseClothe(const char* option)
@@ -86,4 +86,9 @@ void Presenter::showQuotationResult()
 {
 	string result = _shop->getQuotationData()->getResultQuotation();
 	_view->showText(result);
+}
+
+int Presenter::getClotheAmountFromStock()
+{
+	return _shop->getClotheAmountFromStock();
 }

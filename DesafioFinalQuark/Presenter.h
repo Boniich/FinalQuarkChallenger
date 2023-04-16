@@ -40,6 +40,6 @@ public:
 
 	void showQuotationResult();
 	
-
+	int getClotheAmountFromStock();
 	
 };
