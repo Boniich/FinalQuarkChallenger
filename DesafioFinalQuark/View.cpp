@@ -9,6 +9,7 @@ const string separator = "---------------------------------------------";
 View::View()
 {
 	_presenter = new Presenter(this);
+	_presenter->loadStockClothes();
 	showInitialMenu();
 }
 
@@ -169,7 +170,7 @@ void View::showQuotationMenu()
 		showText(separator);
 		showText("INFORMACION: ");
 		//se debe buscar la forma de mostrar un numero dentro de una variable
-		showText("EXISTE: X CANTIDAD DE UNIDADES EN STOCK DE LA PRENDA SELECCIONADA");
+		_presenter->showStockAvailable();
 		showText("PASO 5: Ingresa la cantidad de unidades a cotizar");
 
 		cin >> amount;

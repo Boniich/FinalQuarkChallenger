@@ -24,7 +24,7 @@ public:
 	~Shop();
 	string showInfoShop();
 	string showInfoSeller();
-	void stockPants();
+	void loadStockClothes();
 	Quotation* getQuotationData();
 	int getClotheAmountFromStock();
 	string showStockAvailable();

@@ -23,7 +23,7 @@ public:
 	void showInfoSeller();
 	void showInfoShop();
 
-	void stockClothes();
+	void loadStockClothes();
 	void showStockAvailable();
 
 	//quotation methos

@@ -28,43 +28,38 @@ Quotation* Shop::getQuotationData()
 	return _quotation;
 }
 
-void Shop::stockPants()
+void Shop::loadStockClothes()
 {
 
-	Pants* normalStandarPants = new Pants("Pantalones", "Standard", 250, "Normal");
-	Pants* normalPremiumPants = new Pants("Pantalones", "Premium", 250, "Normal");
-
-	Pants* chupinStandarPants = new Pants("Pantalones", "Standard", 750, "Chupin");
-	Pants* chupinPremiumPants = new Pants("Pantalones", "Premium", 750, "Chupin");
-
-
-	Shirt* shirtStandarShortArmMao = new Shirt("Camisa", "Standard", 100, "Cuello Mao", "Manga Corta");
-	Shirt* shirtPremiumShortArmMao = new Shirt("Camisa", "Premium", 100, "Cuello Mao", "Manga Corta");
-
-	_clothes.push_back(normalStandarPants);
-	_clothes.push_back(normalPremiumPants);
-	_clothes.push_back(chupinStandarPants);
-	_clothes.push_back(chupinPremiumPants);
-
-
-	_clothes.push_back(shirtStandarShortArmMao);
-	_clothes.push_back(shirtPremiumShortArmMao);
+	// Stock shirt
 	//200
-	//_clothes.push_back(new Shirt("Camisa", "Standard", 100, "Cuello Mao", "Manga Corta"));
-	//_clothes.push_back(new Shirt("Camisa", "Premium", 100, "Cuello Mao", "Manga Corta"));
-	
-	
+
+	_clothes.push_back(new Shirt("Camisa", "Standard", 100, "Cuello Mao", "Manga Corta"));
+	_clothes.push_back(new Shirt("Camisa", "Premium", 100, "Cuello Mao", "Manga Corta"));
+
+
 	//300
 	_clothes.push_back(new Shirt("Camisa", "Standard", 150, "Cuello Comun", "Manga Corta"));
-	_clothes.push_back(new Shirt("Camisa", "Premium", 150,  "Cuello Comun","Manga Corta"));
+	_clothes.push_back(new Shirt("Camisa", "Premium", 150, "Cuello Comun", "Manga Corta"));
 
 	//150
-	_clothes.push_back(new Shirt("Camisa", "Standard", 75,"Cuello Mao" ,"Manga Larga"));
+	_clothes.push_back(new Shirt("Camisa", "Standard", 75, "Cuello Mao", "Manga Larga"));
 	_clothes.push_back(new Shirt("Camisa", "Premium", 75, "Cuello Mao", "Manga Larga"));
 
 	//350
 	_clothes.push_back(new Shirt("Camisa", "Standard", 175, "Cuello Comun", "Manga Larga"));
 	_clothes.push_back(new Shirt("Camisa", "Premium", 175, "Cuello Comun", "Manga Larga"));
+
+
+	// stock pants
+
+	//250 - Normal
+	_clothes.push_back(new Pants("Pantalones", "Standard", 250, "Normal"));
+	_clothes.push_back(new Pants("Pantalones", "Premium", 250, "Normal"));
+
+	//750 - chupin
+	_clothes.push_back(new Pants("Pantalones", "Standard", 750, "Chupin"));
+	_clothes.push_back(new Pants("Pantalones", "Premium", 750, "Chupin"));
 
 }
 

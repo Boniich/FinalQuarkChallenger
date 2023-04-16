@@ -30,9 +30,9 @@ void Presenter::showInfoShop()
 	_view->showText(shopName);
 }
 
-void Presenter::stockClothes()
+void Presenter::loadStockClothes()
 {
-	_shop->stockPants();
+	_shop->loadStockClothes();
 }
 
 void Presenter::showStockAvailable()
