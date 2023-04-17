@@ -187,6 +187,9 @@ void View::showQuotationMenu()
 							showText("INFORMACION:");
 							showText("Opcion invalida, vuelva a ingresar un valor");
 							showText(separator);
+							showText("PASO 2: El pantalon a cotizar, ¿Es Chupin?: ");
+							showText("1) Si");
+							showText("2) No");
 						}
 
 					} while (!isTypePantsValidOption);
