@@ -35,6 +35,48 @@ void View::showText(const string& text, int value) {
 	cout << text << " " << value << std::endl;
 }
 
+void View::comeBackToMainMenu()
+{
+	bool comeBackToMainMenu = false;
+
+	string option = "";
+
+	system("cls");
+	showText(separator);
+	showText("INFORMACION:");
+	showText(separator);
+	showText("SEGURO QUE DESEA VOLVER AL MENU INICIAL? El proceso de cotizacion sera cancelado!");
+	showText("1) Si");
+	showText("2) No");
+
+	do {
+
+		cin >> option;
+
+		if (option == "1") {
+			system("cls");
+			comeBackToMainMenu = true;
+			showInitialMenu();
+		}
+		else if(option == "2")
+		{
+			comeBackToMainMenu = true;
+		}
+		else {
+			system("cls");
+			showText(separator);
+			showText("INFORMACION:");
+			showText("Opcion invalida, vuelva a ingresar un valor");
+			showText(separator);
+			showText("SEGURO QUE DESEA VOLVER AL MENU INICIAL? El proceso de cotizacion sera cancelado!");
+			showText("1) Si");
+			showText("2) No");
+		}
+
+	} while (!comeBackToMainMenu);
+
+}
+
 void View::showHeaderSubMenus() 
 {
 	system("cls");
@@ -64,6 +106,18 @@ void View::showClotheQualityMenu()
 			system("cls");
 			isValidOption = true;
 		}
+		else if (option == "3") {
+			//preguntamos si quiere volver al menu principal
+			//si dice que si volvemos al menu principal
+			//si dice que no, volvemos a preguntar por la cotizacion
+
+			comeBackToMainMenu();
+			showHeaderSubMenus();
+			showText("PASO 3: Seleccione la calidad de la prenda: ");
+			showText("1) Standard");
+			showText("2) Premium");
+
+		}
 		else {
 			system("cls");
 			showText(separator);
@@ -86,7 +140,11 @@ void View::showInsertAmountMenu()
 
 	// se muestran las cantidades de unidades y se pide ingresar la cantidad de unidades a cotizar
 
-	showHeaderSubMenus();
+	system("cls");
+	showText("COTIZADOR EXPRESS - COTIZAR");
+	showText(separator);
+	showText("Presiona 0 para volver al menu principal");
+	showText(separator);
 	showText("INFORMACION: ");
 
 	do
@@ -96,8 +154,20 @@ void View::showInsertAmountMenu()
 		showText("PASO 5: Ingresa la cantidad de unidades a cotizar");
 
 		cin >> amount;
+		if (amount == 0) {
+			//preguntamos si quiere volver al menu principal
+			//si dice que si volvemos al menu principal
+			//si dice que no, volvemos a preguntar por la cotizacion
 
-		if (amount > _presenter->getClotheAmountFromStock())
+			comeBackToMainMenu();
+			system("cls");
+			showText("COTIZADOR EXPRESS - COTIZAR");
+			showText(separator);
+			showText("Presiona 0 para volver al menu principal");
+			showText(separator);
+			showText("INFORMACION: ");
+
+		}else if (amount > _presenter->getClotheAmountFromStock())
 		{
 			showHeaderSubMenus();
 			showText("INFORMACION: ");
@@ -206,7 +276,18 @@ void View::showChoosingClotheMenu()
 									system("cls");
 									isValidNeck = true;
 								}
-								else {
+								else if (option == "3") {
+
+									//preguntamos si quiere volver al menu principal
+									//si dice que si volvemos al menu principal
+									//si dice que no, volvemos a preguntar por la cotizacion
+
+									comeBackToMainMenu();
+									showHeaderSubMenus();
+									showText("PASO 2.b: La camisa a cotizar, ¿Es cuello mao?: ");
+									showText("1) Si");
+									showText("2) No");
+								}else {
 
 									system("cls");
 									showText(separator);
@@ -225,7 +306,19 @@ void View::showChoosingClotheMenu()
 							isValid = true;
 
 						}
-						else {
+						else if (option == "3") {
+
+							//preguntamos si quiere volver al menu principal
+							//si dice que si volvemos al menu principal
+							//si dice que no, volvemos a preguntar por la cotizacion
+							comeBackToMainMenu();
+							showHeaderSubMenus();
+							showText("PASO 2.a: La camisa a cotizar, ¿Es manga corta?: ");
+							showText("1) Si");
+							showText("2) No");
+
+
+						}else {
 							system("cls");
 							showText(separator);
 							showText("INFORMACION:");
@@ -258,7 +351,16 @@ void View::showChoosingClotheMenu()
 							system("cls");
 							isTypePantsValidOption = true;
 						}
-						else {
+						else if (option == "3") {
+							//preguntamos si quiere volver al menu principal
+							//si dice que si volvemos al menu principal
+							//si dice que no, volvemos a preguntar por la cotizacion
+							comeBackToMainMenu();
+							showHeaderSubMenus();
+							showText("PASO 2: El pantalon a cotizar, ¿Es Chupin?: ");
+							showText("1) Si");
+							showText("2) No");
+						}else {
 							system("cls");
 							showText(separator);
 							showText("INFORMACION:");
@@ -274,11 +376,21 @@ void View::showChoosingClotheMenu()
 					isValid = true;
 
 				}
+
 				valid = true;
+			}else if (option == "3")
+			{
+				comeBackToMainMenu();
+
+				showHeaderSubMenus();
+				showText("PASO 1: Selecciona la prenda a cotizar: ");
+				showText("1) Camisa");
+				showText("2) Pantalon");
+				showText(separator);
+
 			}
 			else {
-				system("cls");
-				showText(separator);
+				showHeaderSubMenus();
 				showText("INFORMACION:");
 				showText("Opcion invalida, vuelva a ingresar un valor");
 				showText(separator);
@@ -290,12 +402,41 @@ void View::showChoosingClotheMenu()
 		} while (!valid);
 }
 
-void View::showQuotationMenu()
+void View::showQuotationResult()
 {
 	string option = "";
+	bool comeBackToMainMenu = false;
+
+	showHeaderSubMenus();
+	_presenter->showQuotationResult();
 
 	do
 	{
+
+		showText(separator);
+		showText("Presiona 3 para volver al menu principal");
+		showText(separator);
+		cin >> option;
+		if (option == "3")
+		{
+			system("cls");
+			comeBackToMainMenu = true;
+			showInitialMenu();
+
+		}
+		else {
+			system("cls");
+			showText(separator);
+			showText("INFORMACION:");
+			showText("Opcion invalida, vuelva a ingresar un valor");
+			showText(separator);
+		}
+	} while (!comeBackToMainMenu);
+}
+
+void View::showQuotationMenu()
+{
+
 		//mostramos y vamos guardo la informacion que va seleccionando el vendedor
 		showChoosingClotheMenu();
 
@@ -318,16 +459,8 @@ void View::showQuotationMenu()
 
 
 		// nos muestra el resultado de la cotizacion
-		showHeaderSubMenus();
-		_presenter->showQuotationResult();
+		showQuotationResult();
 
-		showText(separator);
-		showText("Presiona 3 para volver al menu principal");
-		showText(separator);
-		cin >> option;
-		system("cls");
-
-	} while (option != "3");
 }
 
 void View::showInitialMenu() 

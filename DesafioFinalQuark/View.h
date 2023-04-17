@@ -23,5 +23,12 @@ private:
 	void showText(const string& text, int value) override;
 	void showHistorySeller();
 	void showQuotationMenu();
+	void showHeaderSubMenus();
+	void showChoosingClotheMenu();
+	void showClotheQualityMenu();
+	void showInsertAmountMenu();
+	void showInsertUnitaryPriceMenu();
+	void comeBackToMainMenu();
+	void showQuotationResult();
 
 };
