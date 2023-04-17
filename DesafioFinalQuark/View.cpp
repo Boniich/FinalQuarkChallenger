@@ -30,11 +30,6 @@ void View::showText(const string& text) {
 	cout << text << std::endl;
 }
 
-void View::showText(const string& text, int value) {
-
-	cout << text << " " << value << std::endl;
-}
-
 void View::comeBackToMainMenu()
 {
 	bool comeBackToMainMenu = false;
