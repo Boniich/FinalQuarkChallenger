@@ -1,5 +1,6 @@
 #include "View.h";
 #include "Presenter.h";
+#include <ctype.h>
 #include <iostream>
 
 using namespace std;
@@ -67,6 +68,7 @@ void View::showQuotationMenu()
 	bool isValid = false;
 	bool isValidNeck = false;
 	bool isTypePantsValidOption = false;
+	bool isQualityClotheValidOption = false;
 
 	do
 	{
@@ -224,12 +226,35 @@ void View::showQuotationMenu()
 		showText("1) Standard");
 		showText("2) Premium");
 
-		cin >> option;
-		_presenter->selectingQualityClothe(option.c_str());
-		system("cls");
+		do 
+		{
+			cin >> option;
+
+			if (option == "1" || option == "2")
+			{
+				_presenter->selectingQualityClothe(option.c_str());
+				system("cls");
+				isQualityClotheValidOption = true;
+			}
+			else {
+				system("cls");
+				showText(separator);
+				showText("INFORMACION:");
+				showText("Opcion invalida, vuelva a ingresar un valor");
+				showText(separator);
+				showText("PASO 3: Seleccione la calidad de la prenda: ");
+				showText("1) Standard");
+				showText("2) Premium");
+			}
+
+
+		} while (!isQualityClotheValidOption);
+
+
 
 
 		// se ingresa el precio unatio
+		//solo se puede ingresar numeros
 
 		showText("COTIZADOR EXPRESS - COTIZAR");
 		showText(separator);
