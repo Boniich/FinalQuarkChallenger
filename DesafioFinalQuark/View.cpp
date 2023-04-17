@@ -45,17 +45,7 @@ void View::showHistorySeller()
 		showText("Presiona 3 para volver al menu principal");
 		showText(separator);
 
-		for (int e = 0; e < 2; e++) {
-			showText("Numero de identifiacion: ", e);
-			showText("Fecha y hora de la cotizacion: ", e);
-			showText("Codigo del vendedor: ", e);
-			showText("Prenda Cotizada: ", e);
-			showText("Precio Unitario: ", e);
-			showText("Cantidades de unidades cotizadas: ", e);
-			showText("precio final: ", e);
-			
-			showText("\n");
-		}
+		_presenter->showHistory();
 
 		showText(separator);
 		showText("Presiona 3 para volver al menu principal");
@@ -73,6 +63,10 @@ void View::showQuotationMenu()
 	double unitaryPrice;
 	int amount;
 	bool isNotAmountMoreThanStock = false;
+	bool valid = false;
+	bool isValid = false;
+	bool isValidNeck = false;
+	bool isTypePantsValidOption = false;
 
 	do
 	{
@@ -85,56 +79,138 @@ void View::showQuotationMenu()
 		showText("2) Pantalon");
 		showText(separator);
 
-		cin >> option;
-		_presenter->chooseClothe(option.c_str());
-
-		if (option == "1")
+		do
 		{
-
-			system("cls");
-			showText("COTIZADOR EXPRESS - COTIZAR");
-			showText(separator);
-			showText("Presiona 3 para volver al menu principal");
-			showText(separator);
-			showText("PASO 2.a: La camisa a cotizar, ¿Es manga corta?: ");
-			showText("1) Si");
-			showText("2) No");
 			cin >> option;
-			_presenter->selectingTypeShirtArm(option.c_str());
-			system("cls");
+			if (option == "1" || option == "2")
+			{
+				_presenter->chooseClothe(option.c_str());
+
+				if (option == "1")
+				{
+
+					system("cls");
+					showText("COTIZADOR EXPRESS - COTIZAR");
+					showText(separator);
+					showText("Presiona 3 para volver al menu principal");
+					showText(separator);
+					showText("PASO 2.a: La camisa a cotizar, ¿Es manga corta?: ");
+					showText("1) Si");
+					showText("2) No");
+					
+					do {
+
+						cin >> option;
+
+						if (option == "1" || option == "2")
+						{
+							_presenter->selectingTypeShirtArm(option.c_str());
 
 
-			system("cls");
-			showText("COTIZADOR EXPRESS - COTIZAR");
-			showText(separator);
-			showText("Presiona 3 para volver al menu principal");
-			showText(separator);
-			showText("PASO 2.b: La camisa a cotizar, ¿Es cuello mao?: ");
-			showText("1) Si");
-			showText("2) No");
-			cin >> option;
-			_presenter->selectingTypeShirtNeck(option.c_str());
-			system("cls");
+							system("cls");
+							showText("COTIZADOR EXPRESS - COTIZAR");
+							showText(separator);
+							showText("Presiona 3 para volver al menu principal");
+							showText(separator);
+							showText("PASO 2.b: La camisa a cotizar, ¿Es cuello mao?: ");
+							showText("1) Si");
+							showText("2) No");
+
+							do 
+							{
+								cin >> option;
+								if (option == "1" || option == "2")
+								{
+									_presenter->selectingTypeShirtNeck(option.c_str());
+									system("cls");
+									isValidNeck = true;
+								}
+								else {
+
+									system("cls");
+									showText(separator);
+									showText("INFORMACION:");
+									showText("Opcion invalida, vuelva a ingresar un valor");
+									showText(separator);
+									showText("PASO 2.a: La camisa a cotizar, ¿Es manga corta?: ");
+									showText("1) Si");
+									showText("2) No");
+								}
 
 
-		}
-		else if (option == "2") {
+							} 
+							while (!isValidNeck);
 
-			system("cls");
-			showText("COTIZADOR EXPRESS - COTIZAR");
-			showText(separator);
-			showText("Presiona 3 para volver al menu principal");
-			showText(separator);
-			showText("PASO 2: El pantalon a cotizar, ¿Es Chupin?: ");
-			showText("1) Si");
-			showText("2) No");
-			cin >> option;
-			_presenter->selectingTypePants(option.c_str());
-			system("cls");
-		}
-		else {
-			showText("Opcion no valida");
-		}
+
+							isValid = true;
+
+						}
+						else {
+							system("cls");
+							showText(separator);
+							showText("INFORMACION:");
+							showText("Opcion invalida, vuelva a ingresar un valor");
+							showText(separator);
+							showText("PASO 2.a: La camisa a cotizar, ¿Es manga corta?: ");
+							showText("1) Si");
+							showText("2) No");
+						}
+
+
+					} while (!isValid);
+
+
+				}else if (option == "2") {
+
+					system("cls");
+					showText("COTIZADOR EXPRESS - COTIZAR");
+					showText(separator);
+					showText("Presiona 3 para volver al menu principal");
+					showText(separator);
+					showText("PASO 2: El pantalon a cotizar, ¿Es Chupin?: ");
+					showText("1) Si");
+					showText("2) No");
+
+					do 
+					{
+						cin >> option;
+
+						if (option == "1" || option == "2")
+						{
+							_presenter->selectingTypePants(option.c_str());
+							system("cls");
+							isTypePantsValidOption = true;
+						}
+						else {
+							system("cls");
+							showText(separator);
+							showText("INFORMACION:");
+							showText("Opcion invalida, vuelva a ingresar un valor");
+							showText(separator);
+						}
+
+					} while (!isTypePantsValidOption);
+
+					isValid = true;
+
+				}
+				valid = true;
+			}
+			else {
+				system("cls");
+				showText(separator);
+				showText("INFORMACION:");
+				showText("Opcion invalida, vuelva a ingresar un valor");
+				showText(separator);
+				showText("PASO 1: Selecciona la prenda a cotizar: ");
+				showText("1) Camisa");
+				showText("2) Pantalon");
+			}
+
+		} while (!valid);
+
+
+		
 		//analizamos si la ropa es standar o premium
 
 		showText("COTIZADOR EXPRESS - COTIZAR");
@@ -222,31 +298,31 @@ void View::showQuotationMenu()
 void View::showInitialMenu() 
 {
 	string option;
-	bool exit = false;
+	bool exitCondition = false;
 
 	do
 	{
-		showText("COTIZADOR EXPRESS - MENU PRINCIPAL");
-		showText(separator);
-		_presenter->showInfoShop();
-		showText(separator);
-		_presenter->showInfoSeller();
-		showText(separator);
-		showText("\n");
+			showText("COTIZADOR EXPRESS - MENU PRINCIPAL");
+			showText(separator);
+			_presenter->showInfoShop();
+			showText(separator);
+			_presenter->showInfoSeller();
+			showText(separator);
+			showText("\n");
 
-		showText("SELECCIONE UNA OPCION DEL MENU");
-		showText("1- Historial de cotizaciones");
-		showText("2- Realizar cotizacion");
-		showText("3- Salir");
-		cin >> option;
-		system("cls");
-		optionSelected(option.c_str(), exit);
-	} while (!exit);
+			showText("SELECCIONE UNA OPCION DEL MENU");
+			showText("1- Historial de cotizaciones");
+			showText("2- Realizar cotizacion");
+			showText("3- Salir");
+			cin >> option;
+			system("cls");
+			optionSelected(option.c_str(), exitCondition);
+	} while (!exitCondition);
 
 
 }
 
-void View::optionSelected(const char* option, bool& exit)
+void View::optionSelected(const char* option, bool& exitCondition)
 {
 	auto str_option = string(option);
 
@@ -254,13 +330,26 @@ void View::optionSelected(const char* option, bool& exit)
 	{
 		showHistorySeller();
 		std::cin.get();
-		exit = false;
+		exitCondition = false;
+
 	}
 	else if (str_option == "2")
 	{
 		showQuotationMenu();
+		exitCondition = false;
+
+	}
+	else if (str_option == "3")
+	{
+		cout.flush();
+		exit(EXIT_SUCCESS);
 
 	}else {
-		showText("Cualquier opcion");
+		system("cls");
+		showText(separator);
+		showText("INFORMACION:");
+		showText("Opcion invalida, vuelva a ingresar un valor");
+		showText(separator);
+		exitCondition = false;
 	}
 }
