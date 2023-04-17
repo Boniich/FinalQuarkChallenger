@@ -35,6 +35,101 @@ void View::showText(const string& text, int value) {
 	cout << text << " " << value << std::endl;
 }
 
+void View::showHeaderSubMenus() 
+{
+	system("cls");
+	showText("COTIZADOR EXPRESS - COTIZAR");
+	showText(separator);
+	showText("Presiona 3 para volver al menu principal");
+	showText(separator);
+}
+
+void View::showClotheQualityMenu()
+{
+	string option = "";
+	bool isValidOption = false;
+
+	showHeaderSubMenus();
+	showText("PASO 3: Seleccione la calidad de la prenda: ");
+	showText("1) Standard");
+	showText("2) Premium");
+
+	do
+	{
+		cin >> option;
+
+		if (option == "1" || option == "2")
+		{
+			_presenter->selectingQualityClothe(option.c_str());
+			system("cls");
+			isValidOption = true;
+		}
+		else {
+			system("cls");
+			showText(separator);
+			showText("INFORMACION:");
+			showText("Opcion invalida, vuelva a ingresar un valor");
+			showText(separator);
+			showText("PASO 3: Seleccione la calidad de la prenda: ");
+			showText("1) Standard");
+			showText("2) Premium");
+		}
+
+
+	} while (!isValidOption);
+}
+
+void View::showInsertAmountMenu()
+{
+	int amount;
+	bool isNotAmountMoreThanStock = false;
+
+	// se muestran las cantidades de unidades y se pide ingresar la cantidad de unidades a cotizar
+
+	showHeaderSubMenus();
+	showText("INFORMACION: ");
+
+	do
+	{
+		//muestra el stock disponible de la prenda seleccionada
+		_presenter->showStockAvailable();
+		showText("PASO 5: Ingresa la cantidad de unidades a cotizar");
+
+		cin >> amount;
+
+		if (amount > _presenter->getClotheAmountFromStock())
+		{
+			showHeaderSubMenus();
+			showText("INFORMACION: ");
+			showText("DATO INVALIDO: La cantidad ingresada supera lo disponible en stock, por favor, ingresa un valor valido");
+			showText(separator);
+
+		}
+		else {
+			_presenter->setAmount(amount);
+			isNotAmountMoreThanStock = true;
+			showText(separator);
+			system("cls");
+		}
+
+	} while (isNotAmountMoreThanStock != true);
+}
+
+void View::showInsertUnitaryPriceMenu()
+{
+	double unitaryPrice;
+
+	//solo se puede ingresar numeros
+
+	showHeaderSubMenus();
+	showText("PASO 4: Ingrese el precio unitario de la prenda a cotizar: ");
+
+	cin >> unitaryPrice;
+	_presenter->selectingUnitaryPrice(unitaryPrice);
+	showText(separator);
+	system("cls");
+}
+
 
 void View::showHistorySeller() 
 {
@@ -58,24 +153,16 @@ void View::showHistorySeller()
 
 }
 
-void View::showQuotationMenu()
+void View::showChoosingClotheMenu()
 {
+
 	string option = "";
-	double unitaryPrice;
-	int amount;
-	bool isNotAmountMoreThanStock = false;
 	bool valid = false;
 	bool isValid = false;
 	bool isValidNeck = false;
 	bool isTypePantsValidOption = false;
-	bool isQualityClotheValidOption = false;
 
-	do
-	{
-		showText("COTIZADOR EXPRESS - COTIZAR");
-		showText(separator);
-		showText("Presiona 3 para volver al menu principal");
-		showText(separator);
+		showHeaderSubMenus();
 		showText("PASO 1: Selecciona la prenda a cotizar: ");
 		showText("1) Camisa");
 		showText("2) Pantalon");
@@ -91,15 +178,11 @@ void View::showQuotationMenu()
 				if (option == "1")
 				{
 
-					system("cls");
-					showText("COTIZADOR EXPRESS - COTIZAR");
-					showText(separator);
-					showText("Presiona 3 para volver al menu principal");
-					showText(separator);
+					showHeaderSubMenus();
 					showText("PASO 2.a: La camisa a cotizar, ¿Es manga corta?: ");
 					showText("1) Si");
 					showText("2) No");
-					
+
 					do {
 
 						cin >> option;
@@ -109,16 +192,12 @@ void View::showQuotationMenu()
 							_presenter->selectingTypeShirtArm(option.c_str());
 
 
-							system("cls");
-							showText("COTIZADOR EXPRESS - COTIZAR");
-							showText(separator);
-							showText("Presiona 3 para volver al menu principal");
-							showText(separator);
+							showHeaderSubMenus();
 							showText("PASO 2.b: La camisa a cotizar, ¿Es cuello mao?: ");
 							showText("1) Si");
 							showText("2) No");
 
-							do 
+							do
 							{
 								cin >> option;
 								if (option == "1" || option == "2")
@@ -140,8 +219,7 @@ void View::showQuotationMenu()
 								}
 
 
-							} 
-							while (!isValidNeck);
+							} while (!isValidNeck);
 
 
 							isValid = true;
@@ -162,18 +240,15 @@ void View::showQuotationMenu()
 					} while (!isValid);
 
 
-				}else if (option == "2") {
+				}
+				else if (option == "2") {
 
-					system("cls");
-					showText("COTIZADOR EXPRESS - COTIZAR");
-					showText(separator);
-					showText("Presiona 3 para volver al menu principal");
-					showText(separator);
+					showHeaderSubMenus();
 					showText("PASO 2: El pantalon a cotizar, ¿Es Chupin?: ");
 					showText("1) Si");
 					showText("2) No");
 
-					do 
+					do
 					{
 						cin >> option;
 
@@ -213,103 +288,37 @@ void View::showQuotationMenu()
 			}
 
 		} while (!valid);
+}
 
+void View::showQuotationMenu()
+{
+	string option = "";
+
+	do
+	{
+		//mostramos y vamos guardo la informacion que va seleccionando el vendedor
+		showChoosingClotheMenu();
 
 		
 		//analizamos si la ropa es standar o premium
-
-		showText("COTIZADOR EXPRESS - COTIZAR");
-		showText(separator);
-		showText("Presiona 3 para volver al menu principal");
-		showText(separator);
-		showText("PASO 3: Seleccione la calidad de la prenda: ");
-		showText("1) Standard");
-		showText("2) Premium");
-
-		do 
-		{
-			cin >> option;
-
-			if (option == "1" || option == "2")
-			{
-				_presenter->selectingQualityClothe(option.c_str());
-				system("cls");
-				isQualityClotheValidOption = true;
-			}
-			else {
-				system("cls");
-				showText(separator);
-				showText("INFORMACION:");
-				showText("Opcion invalida, vuelva a ingresar un valor");
-				showText(separator);
-				showText("PASO 3: Seleccione la calidad de la prenda: ");
-				showText("1) Standard");
-				showText("2) Premium");
-			}
-
-
-		} while (!isQualityClotheValidOption);
-
-
+		showClotheQualityMenu();
 
 
 		// se ingresa el precio unatio
-		//solo se puede ingresar numeros
+		showInsertUnitaryPriceMenu();
 
-		showText("COTIZADOR EXPRESS - COTIZAR");
-		showText(separator);
-		showText("Presiona 3 para volver al menu principal");
-		showText(separator);
-		showText("PASO 4: Ingrese el precio unitario de la prenda a cotizar: ");
 
-		cin >> unitaryPrice;
-		_presenter->selectingUnitaryPrice(unitaryPrice);
-		showText(separator);
-		system("cls");
+		// se muestran las cantidades de unidades de la ropa seleccionada
+		//y se pide ingresar la cantidad de unidades a cotizar
+		showInsertAmountMenu();
 
-		// se muestran las cantidades de unidades y se pide ingresar la cantidad de unidades a cotizar
 
-		showText("COTIZADOR EXPRESS - COTIZAR");
-		showText(separator);
-		showText("Presiona 3 para volver al menu principal");
-		showText(separator);
-		showText("INFORMACION: ");
-		//se debe buscar la forma de mostrar un numero dentro de una variable
-
-		do
-		{
-			_presenter->showStockAvailable();
-			showText("PASO 5: Ingresa la cantidad de unidades a cotizar");
-
-			cin >> amount;
-
-			if (amount > _presenter->getClotheAmountFromStock())
-			{
-				system("cls");
-				showText("COTIZADOR EXPRESS - COTIZAR");
-				showText(separator);
-				showText("Presiona 3 para volver al menu principal");
-				showText(separator);
-				showText("INFORMACION: ");
-				showText("DATO INVALIDO: La cantidad ingresada supera lo disponible en stock, por favor, ingresa un valor valido");
-				showText(separator);
-
-			}else {
-				_presenter->setAmount(amount);
-				isNotAmountMoreThanStock = true;
-				showText(separator);
-				system("cls");
-			}
-
-		} while (isNotAmountMoreThanStock != true);
-
-		// mostramos el resultado de la cotizacion
+		// hace la cotizacion con todos los datos ingresados
 		_presenter->makeQuotation();
-		showText("COTIZADOR EXPRESS - COTIZAR");
-		showText(separator);
-		showText("Presiona 3 para volver al menu principal");
-		showText(separator);
 
+
+		// nos muestra el resultado de la cotizacion
+		showHeaderSubMenus();
 		_presenter->showQuotationResult();
 
 		showText(separator);
@@ -319,8 +328,6 @@ void View::showQuotationMenu()
 		system("cls");
 
 	} while (option != "3");
-
-	
 }
 
 void View::showInitialMenu() 
