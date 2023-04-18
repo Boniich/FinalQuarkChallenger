@@ -2,7 +2,7 @@
 
 Project created in C++, for the final challenger of Quark Academy.
 
-This project use C++14. It not used any library or extra resource
+This project use C++14. It not use any library or extra resource
 
 ## About project
 
