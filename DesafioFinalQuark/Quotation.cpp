@@ -12,6 +12,12 @@ Quotation::Quotation()
 
 }
 
+Quotation::Quotation(int id) 
+{
+	_id = id;
+}
+
+
 Quotation::~Quotation()
 {
 
@@ -34,8 +40,8 @@ string Quotation::getResultQuotation()
 	else {
 		clothe += static_cast<Pants*>(_clothes)->showTypePants();
 	}
-
 	
+
 	clothe +=  "| " + _clothes->showQuality();
 
 	string unitaryPrice = "Precio Unitario: $" + to_string(_clothes->showUnitaryPrice());
@@ -55,9 +61,9 @@ int Quotation::getQuotationId()
 {
 	return _id;
 }
-void Quotation::setQuotationId()
+void Quotation::setQuotationId(int id)
 {
-
+	_id = id;
 }
 
 //date
@@ -80,7 +86,7 @@ void Quotation::saveCurrentDataTime()
 
 int Quotation::getSellerId()
 {
-	return 0;
+	return _sellerId;
 }
 void Quotation::setSellerId(const int sellerId)
 {

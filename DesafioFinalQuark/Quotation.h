@@ -21,10 +21,11 @@ private:
 
 public:
 	Quotation();
+	Quotation(int id);
 	~Quotation();
 
 	int getQuotationId();
-	void setQuotationId();
+	void setQuotationId(int id);
 
 	//date
 	//
