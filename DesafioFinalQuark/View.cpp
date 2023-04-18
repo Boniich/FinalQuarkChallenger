@@ -33,21 +33,53 @@ void View::showText(const string& text) {
 void View::showHistoryQuotation(const list<Quotation*>& list)
 {
 
-	if (list.empty())
+	string comeBack = "";
+
+	showText("COTIZADOR EXPRESS - HISTORIAL DE COTIZACIONES");
+	showText(separator);
+	showText("Presiona 3 para volver al menu principal");
+	showText(separator);
+
+	do
 	{
-		showText("\n");
-		showText("INFORMACION:");
-		showText("No Hay historial del vendedor! Ve a hacer una cotizacion ya!!!");
-		showText("\n");
-	}
-	else {
-		for (const auto& quotation : list)
+
+		if (list.empty())
 		{
 			showText("\n");
-			showText(quotation->getResultQuotation());
+			showText("INFORMACION:");
+			showText("No Hay historial del vendedor! Ve a hacer una cotizacion ya!!!");
 			showText("\n");
 		}
-	}
+		else {
+			for (const auto& quotation : list)
+			{
+				showText("\n");
+				showText(quotation->getResultQuotation());
+				showText("\n");
+			}
+		}
+
+		showText(separator);
+		showText("Presiona 3 para volver al menu principal");
+		showText(separator);
+		cin >> comeBack;
+
+		if (comeBack != "3") 
+		{
+			system("cls");
+			showText(separator);
+			showText("INFORMACION:");
+			showText("Opcion invalida, vuelva a ingresar un valor");
+			showText(separator);
+			showText("Presiona 3 para volver al menu principal");
+			showText(separator);
+		}
+
+	} while (comeBack != "3");
+
+	system("cls");
+
+
 }
 
 
@@ -216,29 +248,6 @@ void View::showInsertUnitaryPriceMenu()
 	system("cls");
 }
 
-
-void View::showHistorySeller() 
-{
-	string comeBack = "";
-	do
-	{
-		showText("COTIZADOR EXPRESS - HISTORIAL DE COTIZACIONES");
-		showText(separator);
-		showText("Presiona 3 para volver al menu principal");
-		showText(separator);
-
-
-		_presenter->getList();
-
-		showText(separator);
-		showText("Presiona 3 para volver al menu principal");
-		showText(separator);
-		cin >> comeBack;
-	} while (comeBack != "3");
-
-	system("cls");
-
-}
 
 void View::showChoosingClotheMenu()
 {
@@ -513,7 +522,7 @@ void View::optionSelected(const char* option, bool& exitCondition)
 
 	if (str_option == "1")
 	{
-		showHistorySeller();
+		_presenter->getList();
 		std::cin.get();
 		exitCondition = false;
 

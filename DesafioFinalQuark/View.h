@@ -21,7 +21,6 @@ private:
 	void showText(const char* text) override;
 	void showText(const string& text) override;
 	void showHistoryQuotation(const list<Quotation*>& list) override;
-	void showHistorySeller();
 	void showQuotationMenu();
 	void showHeaderSubMenus();
 	void showChoosingClotheMenu();
