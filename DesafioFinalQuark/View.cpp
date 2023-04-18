@@ -255,7 +255,7 @@ void View::showInsertAmountMenu()
 	showText(separator);
 	showText("Presiona 0 para volver al menu principal");
 	showText(separator);
-	showText("Presiona 'Y' para volver a la cotizacion actual");
+	showText("Presiona 'H' para ver el historial de cotizaciones");
 	showText(separator);
 	showText("INFORMACION: ");
 
@@ -569,6 +569,12 @@ void View::showQuotationResult()
 			comeBackToMainMenu = true;
 			showInitialMenu();
 
+		}
+		else if (option == "h" || option == "H")
+		{
+			showHistoryQuotationDuringQuotation();
+			showHeaderSubMenus();
+			_presenter->showQuotationResult();
 		}
 		else {
 			system("cls");
