@@ -12,6 +12,7 @@ private:
 	string _neckType;
 	string _armType;
 public:
+	Shirt(string typeClothe);
 	Shirt(string typeClothe, string quality,int stockAmount, string neckType, string armType);
 	string showNeckType();
 	void setNeckType(string neckType);

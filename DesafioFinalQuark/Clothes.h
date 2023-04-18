@@ -7,13 +7,12 @@ using namespace std;
 class Clothes
 {
 private:
-	//experiment
 	string _typeClothe;
-	//
 	string _quality;
 	double _unitaryPrice;
 	int _stockAmount;
 public:
+	Clothes(string typeClothe);
 	Clothes(string typeClothe,string quality,int stockAmount);
 	~Clothes();
 	string showTypeChothe();

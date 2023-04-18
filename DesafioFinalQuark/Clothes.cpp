@@ -1,5 +1,11 @@
 #include "Clothes.h";
 
+
+Clothes::Clothes(string typeClothe) 
+{
+	_typeClothe = typeClothe;
+}
+
 Clothes::Clothes(string typeClothe,string quality, int stockAmount)
 {
 	_typeClothe = typeClothe;
@@ -7,10 +13,9 @@ Clothes::Clothes(string typeClothe,string quality, int stockAmount)
 	_stockAmount = stockAmount;
 }
 
-Clothes::~Clothes()
-{
+Clothes::~Clothes(){}
 
-}
+// muestra si es camisa o pantalon
 
 string Clothes::showTypeChothe()
 {

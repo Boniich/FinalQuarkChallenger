@@ -1,5 +1,6 @@
 #include "Shirt.h";
 
+Shirt::Shirt(string typeClothe) : Clothes(typeClothe) {}
 
 Shirt::Shirt(
 	string typeClothe, string quality, int stockAmount,
