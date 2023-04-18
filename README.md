@@ -10,7 +10,7 @@ Small project in C++, that simulate a Clothe Shop, you will be the Seller of the
 
 As Seller will be able to see your history quotations and make quotations.
 
-### Characteris
+### Characteristics
 
 - Use c++ lenguage
 - Use MVP (Model View Presenter) 
