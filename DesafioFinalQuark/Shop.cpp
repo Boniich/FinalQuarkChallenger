@@ -132,23 +132,27 @@ list<Quotation*> Shop::showHistoryQuotation()
 	return history;
 }
 
+void Shop::saveHistoryQuotation()
+{
+	int idQuotation = getQuotationData()->getQuotationId();
+	string date = getQuotationData()->getDate();
+	Clothes* clothe = getQuotationData()->getClotheData();
+	int sellerId = getQuotationData()->getSellerId();
+	int amount = getQuotationData()->getAmount();
+	double finalPrice = getQuotationData()->getFinalPrice();
 
+	Quotation* saveQuotation = new Quotation(idQuotation, date, sellerId, clothe, amount, finalPrice);
+
+	_quotationHistory.push_back(saveQuotation);
+}
 
 
 void Shop::makeQuotation()
 {
 	int sellerId = _seller.showSellerId();
 
+
 	getQuotationData()->makeQuotation(sellerId);
 
-	int idQuotation = getQuotationData()->getQuotationId();
-	string date = getQuotationData()->getDate();
-	Clothes* clothe = getQuotationData()->getClotheData();
-	int id = getQuotationData()->getSellerId();
-	int amount = getQuotationData()->getAmount();
-	double finalPrice = getQuotationData()->getFinalPrice();
-
-	Quotation* saveQuotation = new Quotation(idQuotation, date, id, clothe, amount, finalPrice);
-
-	_quotationHistory.push_back(saveQuotation);
+	saveHistoryQuotation();
 }

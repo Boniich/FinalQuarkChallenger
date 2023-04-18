@@ -31,5 +31,5 @@ public:
 	int getClotheAmountFromStock();
 	string showStockAvailable();
 	list<Quotation*> showHistoryQuotation();
-	void saveQuotations();
+	void saveHistoryQuotation();
 };
