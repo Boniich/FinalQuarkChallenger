@@ -32,10 +32,21 @@ void View::showText(const string& text) {
 
 void View::showHistoryQuotation(const list<Quotation*>& list)
 {
-	for (const auto& quotation : list)
+
+	if (list.empty())
 	{
-		showText(quotation->getResultQuotation());
 		showText("\n");
+		showText("INFORMACION:");
+		showText("No Hay historial del vendedor! Ve a hacer una cotizacion ya!!!");
+		showText("\n");
+	}
+	else {
+		for (const auto& quotation : list)
+		{
+			showText("\n");
+			showText(quotation->getResultQuotation());
+			showText("\n");
+		}
 	}
 }
 
