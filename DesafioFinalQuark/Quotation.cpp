@@ -12,9 +12,16 @@ Quotation::Quotation()
 
 }
 
-Quotation::Quotation(int id) 
+Quotation::Quotation(
+	int id, string date, int sellerId, 
+	Clothes* clothes, int amount, double finalPrice)
 {
 	_id = id;
+	_date = date;
+	_sellerId = sellerId;
+	_clothes = clothes;
+	_amount = amount;
+	_finalPrice = finalPrice;
 }
 
 
@@ -64,6 +71,16 @@ int Quotation::getQuotationId()
 void Quotation::setQuotationId(int id)
 {
 	_id = id;
+}
+
+string Quotation::getDate()
+{
+	return _date;
+}
+
+double Quotation::getFinalPrice()
+{
+	return _finalPrice;
 }
 
 //date

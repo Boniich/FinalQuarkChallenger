@@ -21,14 +21,21 @@ private:
 
 public:
 	Quotation();
-	Quotation(int id);
+	Quotation(int id, string date, int sellerId, Clothes* clothes, int amount, double finalPrice);
 	~Quotation();
 
 	int getQuotationId();
 	void setQuotationId(int id);
 
 	//date
-	//
+	
+	string getDate();
+
+	// final price
+
+	double getFinalPrice();
+
+
 	int getSellerId();
 	void setSellerId(const int sellerId);
 
