@@ -7,9 +7,16 @@
 
 using namespace std;
 
-Shop::Shop() {}
+Shop::Shop() {
+	
+	_quotation = new Quotation();
 
-Shop::~Shop() {}
+}
+
+Shop::~Shop() 
+{
+	delete _quotation;
+}
 
 string Shop::showInfoShop()
 {
@@ -109,9 +116,32 @@ int Shop::getClotheAmountFromStock()
 
 }
 
+
+list<Quotation*> Shop::showHistoryQuotation()
+{
+	list<Quotation*> history = {};
+
+	for (Quotation* quotation : _quotationHistory)
+	{
+		//if (quotation->getSellerId() == _seller.showSellerId())
+		//{
+			history.push_back(quotation);
+		//}
+	}
+
+	return history;
+}
+
+
+
+
 void Shop::makeQuotation()
 {
 	int sellerId = _seller.showSellerId();
 
 	getQuotationData()->makeQuotation(sellerId);
+
+	Quotation* saveQuotation = new Quotation(getQuotationData()->getQuotationId());
+
+	_quotationHistory.push_back(saveQuotation);
 }

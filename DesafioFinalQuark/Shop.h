@@ -18,7 +18,8 @@ private:
 	string direction = "Calle falsa 123";
 	Seller _seller;
 	list<Clothes*> _clothes = {};
-	Quotation* _quotation = new Quotation();
+	Quotation* _quotation = nullptr;
+	list<Quotation*> _quotationHistory = {};
 public:
 	Shop();
 	~Shop();
@@ -29,4 +30,6 @@ public:
 	void makeQuotation();
 	int getClotheAmountFromStock();
 	string showStockAvailable();
+	list<Quotation*> showHistoryQuotation();
+	void saveQuotations();
 };
