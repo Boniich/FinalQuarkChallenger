@@ -20,6 +20,7 @@ private:
 	~View() override;
 	void showText(const char* text) override;
 	void showText(const string& text) override;
+	void showHistoryQuotation(const list<Quotation*>& list) override;
 	void showHistorySeller();
 	void showQuotationMenu();
 	void showHeaderSubMenus();
@@ -29,5 +30,6 @@ private:
 	void showInsertUnitaryPriceMenu();
 	void comeBackToMainMenu();
 	void showQuotationResult();
+	void history();
 
 };

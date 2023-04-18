@@ -30,6 +30,15 @@ void View::showText(const string& text) {
 	cout << text << std::endl;
 }
 
+void View::showHistoryQuotation(const list<Quotation*>& list)
+{
+	for (const auto& quotation : list)
+	{
+		cout << quotation->getQuotationId();
+	}
+}
+
+
 void View::comeBackToMainMenu()
 {
 	bool comeBackToMainMenu = false;
@@ -206,7 +215,8 @@ void View::showHistorySeller()
 		showText("Presiona 3 para volver al menu principal");
 		showText(separator);
 
-		_presenter->showHistory();
+
+		_presenter->getList();
 
 		showText(separator);
 		showText("Presiona 3 para volver al menu principal");
