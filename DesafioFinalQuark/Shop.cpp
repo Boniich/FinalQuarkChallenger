@@ -123,10 +123,10 @@ list<Quotation*> Shop::showHistoryQuotation()
 
 	for (Quotation* quotation : _quotationHistory)
 	{
-		//if (quotation->getSellerId() == _seller.showSellerId())
-		//{
+		if (quotation->getSellerId() == _seller.showSellerId())
+		{
 			history.push_back(quotation);
-		//}
+		}
 	}
 
 	return history;
@@ -141,7 +141,14 @@ void Shop::makeQuotation()
 
 	getQuotationData()->makeQuotation(sellerId);
 
-	Quotation* saveQuotation = new Quotation(getQuotationData()->getQuotationId());
+	int idQuotation = getQuotationData()->getQuotationId();
+	string date = getQuotationData()->getDate();
+	Clothes* clothe = getQuotationData()->getClotheData();
+	int id = getQuotationData()->getSellerId();
+	int amount = getQuotationData()->getAmount();
+	double finalPrice = getQuotationData()->getFinalPrice();
+
+	Quotation* saveQuotation = new Quotation(idQuotation, date, id, clothe, amount, finalPrice);
 
 	_quotationHistory.push_back(saveQuotation);
 }
