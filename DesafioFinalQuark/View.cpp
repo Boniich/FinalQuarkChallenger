@@ -34,7 +34,8 @@ void View::showHistoryQuotation(const list<Quotation*>& list)
 {
 	for (const auto& quotation : list)
 	{
-		cout << quotation->getQuotationId();
+		showText(quotation->getResultQuotation());
+		showText("\n");
 	}
 }
 
