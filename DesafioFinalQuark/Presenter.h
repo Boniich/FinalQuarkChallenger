@@ -1,5 +1,8 @@
 
-#include <string>;
+#include <list>
+#include <string>
+#include "Quotation.h";
+
 
 class IView;
 class Seller;
@@ -39,7 +42,8 @@ public:
 	void makeQuotation();
 
 	void showQuotationResult();
-	
+
+	void getList();
 	int getClotheAmountFromStock();
 	
 };

@@ -92,3 +92,16 @@ int Presenter::getClotheAmountFromStock()
 {
 	return _shop->getClotheAmountFromStock();
 }
+
+
+void Presenter::getList() {
+
+	list<Quotation*> quotation = _shop->showHistoryQuotation();
+	_view->showHistoryQuotation(quotation);
+}
+
+/*
+list<Quotation*> Presenter::getList() {
+
+	return _shop->showHistoryQuotation();
+}*/
