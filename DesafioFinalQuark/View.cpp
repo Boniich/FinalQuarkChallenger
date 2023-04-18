@@ -131,56 +131,6 @@ void View::showHistoryQuotation(const list<Quotation*>& list)
 			showText("\n");
 		}
 	}
-
-
-	/*
-	string comeBack = "";
-
-	showText("COTIZADOR EXPRESS - HISTORIAL DE COTIZACIONES");
-	showText(separator);
-	showText("Presiona 3 para volver al menu principal");
-	showText(separator);
-
-	do
-	{
-
-		if (list.empty())
-		{
-			showText("\n");
-			showText("INFORMACION:");
-			showText("No Hay historial del vendedor! Ve a hacer una cotizacion ya!!!");
-			showText("\n");
-		}
-		else {
-			for (const auto& quotation : list)
-			{
-				showText("\n");
-				showText(quotation->getResultQuotation());
-				showText("\n");
-			}
-		}
-
-		showText(separator);
-		showText("Presiona 3 para volver al menu principal");
-		showText(separator);
-		cin >> comeBack;
-
-		if (comeBack != "3") 
-		{
-			system("cls");
-			showText(separator);
-			showText("INFORMACION:");
-			showText("Opcion invalida, vuelva a ingresar un valor");
-			showText(separator);
-			showText("Presiona 3 para volver al menu principal");
-			showText(separator);
-		}
-
-	} while (comeBack != "3");
-
-	system("cls");
-*/
-
 }
 
 
