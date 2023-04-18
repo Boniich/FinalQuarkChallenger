@@ -29,6 +29,5 @@ private:
 	void showInsertUnitaryPriceMenu();
 	void comeBackToMainMenu();
 	void showQuotationResult();
-	void history();
 
 };
