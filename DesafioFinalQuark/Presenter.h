@@ -17,7 +17,6 @@ private:
 	IView* _view = nullptr;
 	Seller* _seller = nullptr;
 	Shop* _shop = nullptr;
-	Quotation* _quotation = nullptr;
 
 public:
 	
@@ -28,22 +27,24 @@ public:
 
 	void loadStockClothes();
 	void showStockAvailable();
+	int getClotheAmountFromStock();
 
 	//quotation methos
-	void chooseClothe(const char* option);
-	void selectingQualityClothe(const char* option);
-	void selectingUnitaryPrice(const double unitaryPrice);
-	void setAmount(const int amount);
+	void selectTypeClotheForQuotation(const char* option);
 
-	void selectingTypeShirtArm(const char* option);
-	void selectingTypeShirtNeck(const char* option);
+	void selectQualityClotheForQuotation(const char* option);
+	void insertUnitaryPriceForQuotation(const double unitaryPrice);
+	void insertClotheAmountForQuotation(const int amount);
 
-	void selectingTypePants(const char* option);
+	void selectTypeShirtArmForQuotation(const char* option);
+	void selectTypeShirtNeckForQuotation(const char* option);
+
+	void selectTypePantsForQuotation(const char* option);
 	void makeQuotation();
 
 	void showQuotationResult();
 
-	void getList();
-	int getClotheAmountFromStock();
+	void showHistoryQuotation();
+	
 	
 };

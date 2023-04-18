@@ -8,7 +8,7 @@
 
 using namespace std;
 
-Presenter::Presenter(IView* view) : _view(view), _seller(new Seller()), _shop(new Shop), _quotation(new Quotation())
+Presenter::Presenter(IView* view) : _view(view), _seller(new Seller()), _shop(new Shop)
 {
 
 }
@@ -16,6 +16,7 @@ Presenter::Presenter(IView* view) : _view(view), _seller(new Seller()), _shop(ne
 Presenter::~Presenter()
 {
 	delete _seller;
+	delete _shop;
 }
 
 void Presenter::showInfoSeller() {
@@ -43,7 +44,7 @@ void Presenter::showStockAvailable()
 }
 
 
-void Presenter::setAmount(const int amount)
+void Presenter::insertClotheAmountForQuotation(const int amount)
 {
 	_shop->getQuotationData()->setAmount(amount);
 }
@@ -53,31 +54,31 @@ void Presenter::makeQuotation()
 	_shop->makeQuotation();
 }
 
-void Presenter::chooseClothe(const char* option)
+void Presenter::selectTypeClotheForQuotation(const char* option)
 {
 	_shop->getQuotationData()->selectingClothe(option);
 }
 
-void Presenter::selectingQualityClothe(const char* option)
+void Presenter::selectQualityClotheForQuotation(const char* option)
 {
 	_shop->getQuotationData()->selectingQualityClothe(option);
 }
 
-void Presenter::selectingUnitaryPrice(const double unitaryPrice)
+void Presenter::insertUnitaryPriceForQuotation(const double unitaryPrice)
 {
 	_shop->getQuotationData()->selectingUnitaryPrice(unitaryPrice);
 }
 
-void Presenter::selectingTypeShirtArm(const char* option)
+void Presenter::selectTypeShirtArmForQuotation(const char* option)
 {
 	_shop->getQuotationData()->selectingTypeShirtArm(option);
 }
-void Presenter::selectingTypeShirtNeck(const char* option)
+void Presenter::selectTypeShirtNeckForQuotation(const char* option)
 {
 	_shop->getQuotationData()->selectingTypeShirtNeck(option);
 }
 
-void Presenter::selectingTypePants(const char* option)
+void Presenter::selectTypePantsForQuotation(const char* option)
 {
 	_shop->getQuotationData()->selectingTypePants(option);
 }
@@ -94,14 +95,8 @@ int Presenter::getClotheAmountFromStock()
 }
 
 
-void Presenter::getList() {
+void Presenter::showHistoryQuotation() {
 
 	list<Quotation*> quotation = _shop->showHistoryQuotation();
 	_view->showHistoryQuotation(quotation);
 }
-
-/*
-list<Quotation*> Presenter::getList() {
-
-	return _shop->showHistoryQuotation();
-}*/

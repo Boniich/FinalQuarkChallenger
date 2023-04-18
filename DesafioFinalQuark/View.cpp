@@ -150,7 +150,7 @@ void View::showClotheQualityMenu()
 
 		if (option == "1" || option == "2")
 		{
-			_presenter->selectingQualityClothe(option.c_str());
+			_presenter->selectQualityClotheForQuotation(option.c_str());
 			system("cls");
 			isValidOption = true;
 		}
@@ -224,7 +224,7 @@ void View::showInsertAmountMenu()
 
 		}
 		else {
-			_presenter->setAmount(amount);
+			_presenter->insertClotheAmountForQuotation(amount);
 			isNotAmountMoreThanStock = true;
 			showText(separator);
 			system("cls");
@@ -243,7 +243,7 @@ void View::showInsertUnitaryPriceMenu()
 	showText("PASO 4: Ingrese el precio unitario de la prenda a cotizar: ");
 
 	cin >> unitaryPrice;
-	_presenter->selectingUnitaryPrice(unitaryPrice);
+	_presenter->insertUnitaryPriceForQuotation(unitaryPrice);
 	showText(separator);
 	system("cls");
 }
@@ -269,7 +269,7 @@ void View::showChoosingClotheMenu()
 			cin >> option;
 			if (option == "1" || option == "2")
 			{
-				_presenter->chooseClothe(option.c_str());
+				_presenter->selectTypeClotheForQuotation(option.c_str());
 
 				if (option == "1")
 				{
@@ -285,7 +285,7 @@ void View::showChoosingClotheMenu()
 
 						if (option == "1" || option == "2")
 						{
-							_presenter->selectingTypeShirtArm(option.c_str());
+							_presenter->selectTypeShirtArmForQuotation(option.c_str());
 
 
 							showHeaderSubMenus();
@@ -298,7 +298,7 @@ void View::showChoosingClotheMenu()
 								cin >> option;
 								if (option == "1" || option == "2")
 								{
-									_presenter->selectingTypeShirtNeck(option.c_str());
+									_presenter->selectTypeShirtNeckForQuotation(option.c_str());
 									system("cls");
 									isValidNeck = true;
 								}
@@ -373,7 +373,7 @@ void View::showChoosingClotheMenu()
 
 						if (option == "1" || option == "2")
 						{
-							_presenter->selectingTypePants(option.c_str());
+							_presenter->selectTypePantsForQuotation(option.c_str());
 							system("cls");
 							isTypePantsValidOption = true;
 						}
@@ -522,7 +522,7 @@ void View::optionSelected(const char* option, bool& exitCondition)
 
 	if (str_option == "1")
 	{
-		_presenter->getList();
+		_presenter->showHistoryQuotation();
 		std::cin.get();
 		exitCondition = false;
 
