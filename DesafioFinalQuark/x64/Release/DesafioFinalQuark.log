@@ -1,25 +1,4 @@
-﻿  Clothes.cpp
-C:\Users\ezequ\OneDrive\Escritorio\DesafioFinalQuark\DesafioFinalQuark\Clothes.cpp(1,10): warning C4067: símbolos (token) inesperados después de la directiva del preprocesador; se esperaba una nueva línea
-  main.cpp
-C:\Users\ezequ\OneDrive\Escritorio\DesafioFinalQuark\DesafioFinalQuark\main.cpp(2,10): warning C4067: símbolos (token) inesperados después de la directiva del preprocesador; se esperaba una nueva línea
-C:\Users\ezequ\OneDrive\Escritorio\DesafioFinalQuark\DesafioFinalQuark\View.h(3,10): warning C4067: símbolos (token) inesperados después de la directiva del preprocesador; se esperaba una nueva línea
-  Pants.cpp
-C:\Users\ezequ\OneDrive\Escritorio\DesafioFinalQuark\DesafioFinalQuark\Pants.cpp(1,10): warning C4067: símbolos (token) inesperados después de la directiva del preprocesador; se esperaba una nueva línea
-C:\Users\ezequ\OneDrive\Escritorio\DesafioFinalQuark\DesafioFinalQuark\Pants.h(3,10): warning C4067: símbolos (token) inesperados después de la directiva del preprocesador; se esperaba una nueva línea
-  Presenter.cpp
-C:\Users\ezequ\OneDrive\Escritorio\DesafioFinalQuark\DesafioFinalQuark\Presenter.cpp(1,10): warning C4067: símbolos (token) inesperados después de la directiva del preprocesador; se esperaba una nueva línea
-C:\Users\ezequ\OneDrive\Escritorio\DesafioFinalQuark\DesafioFinalQuark\Presenter.h(4,10): warning C4067: símbolos (token) inesperados después de la directiva del preprocesador; se esperaba una nueva línea
-C:\Users\ezequ\OneDrive\Escritorio\DesafioFinalQuark\DesafioFinalQuark\Quotation.h(3,10): warning C4067: símbolos (token) inesperados después de la directiva del preprocesador; se esperaba una nueva línea
-C:\Users\ezequ\OneDrive\Escritorio\DesafioFinalQuark\DesafioFinalQuark\Presenter.cpp(2,10): warning C4067: símbolos (token) inesperados después de la directiva del preprocesador; se esperaba una nueva línea
-C:\Users\ezequ\OneDrive\Escritorio\DesafioFinalQuark\DesafioFinalQuark\Presenter.cpp(3,10): warning C4067: símbolos (token) inesperados después de la directiva del preprocesador; se esperaba una nueva línea
-C:\Users\ezequ\OneDrive\Escritorio\DesafioFinalQuark\DesafioFinalQuark\Presenter.cpp(4,10): warning C4067: símbolos (token) inesperados después de la directiva del preprocesador; se esperaba una nueva línea
-C:\Users\ezequ\OneDrive\Escritorio\DesafioFinalQuark\DesafioFinalQuark\Presenter.cpp(5,10): warning C4067: símbolos (token) inesperados después de la directiva del preprocesador; se esperaba una nueva línea
-C:\Users\ezequ\OneDrive\Escritorio\DesafioFinalQuark\DesafioFinalQuark\Shop.h(4,10): warning C4067: símbolos (token) inesperados después de la directiva del preprocesador; se esperaba una nueva línea
-C:\Users\ezequ\OneDrive\Escritorio\DesafioFinalQuark\DesafioFinalQuark\Shop.h(5,10): warning C4067: símbolos (token) inesperados después de la directiva del preprocesador; se esperaba una nueva línea
-C:\Users\ezequ\OneDrive\Escritorio\DesafioFinalQuark\DesafioFinalQuark\Shop.h(6,10): warning C4067: símbolos (token) inesperados después de la directiva del preprocesador; se esperaba una nueva línea
-C:\Users\ezequ\OneDrive\Escritorio\DesafioFinalQuark\DesafioFinalQuark\Presenter.cpp(6,10): warning C4067: símbolos (token) inesperados después de la directiva del preprocesador; se esperaba una nueva línea
-C:\Users\ezequ\OneDrive\Escritorio\DesafioFinalQuark\DesafioFinalQuark\Presenter.cpp(7,10): warning C4067: símbolos (token) inesperados después de la directiva del preprocesador; se esperaba una nueva línea
-  Quotation.cpp
+﻿  Quotation.cpp
 C:\Users\ezequ\OneDrive\Escritorio\DesafioFinalQuark\DesafioFinalQuark\Quotation.cpp(1,10): warning C4067: símbolos (token) inesperados después de la directiva del preprocesador; se esperaba una nueva línea
 C:\Users\ezequ\OneDrive\Escritorio\DesafioFinalQuark\DesafioFinalQuark\Quotation.h(3,10): warning C4067: símbolos (token) inesperados después de la directiva del preprocesador; se esperaba una nueva línea
 C:\Users\ezequ\OneDrive\Escritorio\DesafioFinalQuark\DesafioFinalQuark\Quotation.cpp(2,10): warning C4067: símbolos (token) inesperados después de la directiva del preprocesador; se esperaba una nueva línea
@@ -27,36 +6,9 @@ C:\Users\ezequ\OneDrive\Escritorio\DesafioFinalQuark\DesafioFinalQuark\Pants.h(3
 C:\Users\ezequ\OneDrive\Escritorio\DesafioFinalQuark\DesafioFinalQuark\Quotation.cpp(3,10): warning C4067: símbolos (token) inesperados después de la directiva del preprocesador; se esperaba una nueva línea
 C:\Users\ezequ\OneDrive\Escritorio\DesafioFinalQuark\DesafioFinalQuark\Shirt.h(2,10): warning C4067: símbolos (token) inesperados después de la directiva del preprocesador; se esperaba una nueva línea
 C:\Users\ezequ\OneDrive\Escritorio\DesafioFinalQuark\DesafioFinalQuark\Shirt.h(4,10): warning C4067: símbolos (token) inesperados después de la directiva del preprocesador; se esperaba una nueva línea
-  Seller.cpp
-C:\Users\ezequ\OneDrive\Escritorio\DesafioFinalQuark\DesafioFinalQuark\Seller.cpp(2,10): warning C4067: símbolos (token) inesperados después de la directiva del preprocesador; se esperaba una nueva línea
-C:\Users\ezequ\OneDrive\Escritorio\DesafioFinalQuark\DesafioFinalQuark\Quotation.h(3,10): warning C4067: símbolos (token) inesperados después de la directiva del preprocesador; se esperaba una nueva línea
-  Shirt.cpp
-C:\Users\ezequ\OneDrive\Escritorio\DesafioFinalQuark\DesafioFinalQuark\Shirt.cpp(1,10): warning C4067: símbolos (token) inesperados después de la directiva del preprocesador; se esperaba una nueva línea
-C:\Users\ezequ\OneDrive\Escritorio\DesafioFinalQuark\DesafioFinalQuark\Shirt.h(2,10): warning C4067: símbolos (token) inesperados después de la directiva del preprocesador; se esperaba una nueva línea
-C:\Users\ezequ\OneDrive\Escritorio\DesafioFinalQuark\DesafioFinalQuark\Shirt.h(4,10): warning C4067: símbolos (token) inesperados después de la directiva del preprocesador; se esperaba una nueva línea
-  Shop.cpp
-C:\Users\ezequ\OneDrive\Escritorio\DesafioFinalQuark\DesafioFinalQuark\Shop.cpp(1,10): warning C4067: símbolos (token) inesperados después de la directiva del preprocesador; se esperaba una nueva línea
-C:\Users\ezequ\OneDrive\Escritorio\DesafioFinalQuark\DesafioFinalQuark\Shop.h(4,10): warning C4067: símbolos (token) inesperados después de la directiva del preprocesador; se esperaba una nueva línea
-C:\Users\ezequ\OneDrive\Escritorio\DesafioFinalQuark\DesafioFinalQuark\Shop.h(5,10): warning C4067: símbolos (token) inesperados después de la directiva del preprocesador; se esperaba una nueva línea
-C:\Users\ezequ\OneDrive\Escritorio\DesafioFinalQuark\DesafioFinalQuark\Shop.h(6,10): warning C4067: símbolos (token) inesperados después de la directiva del preprocesador; se esperaba una nueva línea
-C:\Users\ezequ\OneDrive\Escritorio\DesafioFinalQuark\DesafioFinalQuark\Quotation.h(3,10): warning C4067: símbolos (token) inesperados después de la directiva del preprocesador; se esperaba una nueva línea
-C:\Users\ezequ\OneDrive\Escritorio\DesafioFinalQuark\DesafioFinalQuark\Shop.cpp(2,10): warning C4067: símbolos (token) inesperados después de la directiva del preprocesador; se esperaba una nueva línea
-C:\Users\ezequ\OneDrive\Escritorio\DesafioFinalQuark\DesafioFinalQuark\Pants.h(3,10): warning C4067: símbolos (token) inesperados después de la directiva del preprocesador; se esperaba una nueva línea
-C:\Users\ezequ\OneDrive\Escritorio\DesafioFinalQuark\DesafioFinalQuark\Shop.cpp(3,10): warning C4067: símbolos (token) inesperados después de la directiva del preprocesador; se esperaba una nueva línea
-C:\Users\ezequ\OneDrive\Escritorio\DesafioFinalQuark\DesafioFinalQuark\Shirt.h(2,10): warning C4067: símbolos (token) inesperados después de la directiva del preprocesador; se esperaba una nueva línea
-C:\Users\ezequ\OneDrive\Escritorio\DesafioFinalQuark\DesafioFinalQuark\Shirt.h(4,10): warning C4067: símbolos (token) inesperados después de la directiva del preprocesador; se esperaba una nueva línea
-C:\Users\ezequ\OneDrive\Escritorio\DesafioFinalQuark\DesafioFinalQuark\Shop.cpp(4,10): warning C4067: símbolos (token) inesperados después de la directiva del preprocesador; se esperaba una nueva línea
-C:\Users\ezequ\OneDrive\Escritorio\DesafioFinalQuark\DesafioFinalQuark\Shop.cpp(5,10): warning C4067: símbolos (token) inesperados después de la directiva del preprocesador; se esperaba una nueva línea
-C:\Users\ezequ\OneDrive\Escritorio\DesafioFinalQuark\DesafioFinalQuark\Shop.cpp(6,10): warning C4067: símbolos (token) inesperados después de la directiva del preprocesador; se esperaba una nueva línea
-  View.cpp
-C:\Users\ezequ\OneDrive\Escritorio\DesafioFinalQuark\DesafioFinalQuark\View.cpp(1,10): warning C4067: símbolos (token) inesperados después de la directiva del preprocesador; se esperaba una nueva línea
-C:\Users\ezequ\OneDrive\Escritorio\DesafioFinalQuark\DesafioFinalQuark\View.h(3,10): warning C4067: símbolos (token) inesperados después de la directiva del preprocesador; se esperaba una nueva línea
-C:\Users\ezequ\OneDrive\Escritorio\DesafioFinalQuark\DesafioFinalQuark\View.cpp(2,10): warning C4067: símbolos (token) inesperados después de la directiva del preprocesador; se esperaba una nueva línea
-C:\Users\ezequ\OneDrive\Escritorio\DesafioFinalQuark\DesafioFinalQuark\Presenter.h(4,10): warning C4067: símbolos (token) inesperados después de la directiva del preprocesador; se esperaba una nueva línea
-C:\Users\ezequ\OneDrive\Escritorio\DesafioFinalQuark\DesafioFinalQuark\Quotation.h(3,10): warning C4067: símbolos (token) inesperados después de la directiva del preprocesador; se esperaba una nueva línea
   Generando código
-  Previous IPDB not found, fall back to full compilation.
-C:\Users\ezequ\OneDrive\Escritorio\DesafioFinalQuark\DesafioFinalQuark\Shop.cpp(141): warning C4715: 'Shop::getClotheAmountFromStock': no todas las rutas de acceso de control devuelven un valor
-  All 418 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  4 of 418 functions ( 1.0%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    1 functions had inline decision re-evaluated but remain unchanged
   Generación de código finalizada
   DesafioFinalQuark.vcxproj -> C:\Users\ezequ\OneDrive\Escritorio\DesafioFinalQuark\x64\Release\DesafioFinalQuark.exe
