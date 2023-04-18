@@ -22,6 +22,8 @@ private:
 	void showInsertUnitaryPriceMenu();
 	void comeBackToMainMenu();
 	void showQuotationResult();
+	void showHistoryQuotationInMainMenu();
+	void showHistoryQuotationDuringQuotation();
 
 	
  public:

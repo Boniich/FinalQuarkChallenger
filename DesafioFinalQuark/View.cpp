@@ -30,9 +30,109 @@ void View::showText(const string& text) {
 	cout << text << std::endl;
 }
 
+void View::showHistoryQuotationInMainMenu() 
+{
+	string comeBack = "";
+
+	showText("COTIZADOR EXPRESS - HISTORIAL DE COTIZACIONES");
+	showText(separator);
+	showText("Presiona 3 para volver al menu principal");
+	showText(separator);
+
+	do
+	{
+		_presenter->showHistoryQuotation();
+		showText(separator);
+		showText("Presiona 3 para volver al menu principal");
+		showText(separator);
+		cin >> comeBack;
+
+		if (comeBack != "3")
+		{
+			system("cls");
+			showText(separator);
+			showText("INFORMACION:");
+			showText("Opcion invalida, vuelva a ingresar un valor");
+			showText(separator);
+			showText("Presiona 3 para volver al menu principal");
+			showText(separator);
+		}
+
+	} while (comeBack != "3");
+
+	system("cls");
+}
+
+void View::showHistoryQuotationDuringQuotation() 
+{
+	string comeBack = "";
+	bool comeBackToActualQuotation = false;
+
+	system("cls");
+	showText("COTIZADOR EXPRESS - HISTORIAL DE COTIZACIONES");
+	showText(separator);
+	showText("Presiona 'Y' para volver a la cotizacion actual");
+	showText(separator);
+	showText("Presiona 3 para volver al menu principal");
+	showText(separator);
+
+	do
+	{
+		_presenter->showHistoryQuotation();
+		showText(separator);
+		showText("Presiona 3 para volver al menu principal");
+		showText(separator);
+		cin >> comeBack;
+
+		if (comeBack == "3")
+		{
+			system("cls");
+			showInitialMenu();
+		}
+		else if (comeBack == "Y" || comeBack == "y")
+		{
+			comeBackToActualQuotation = true;
+		}
+		else {
+			system("cls");
+			showText(separator);
+			showText("INFORMACION:");
+			showText("Opcion invalida, vuelva a ingresar un valor");
+			showText(separator);
+			showText("Presiona 3 para volver al menu principal");
+			showText(separator);
+		}
+
+
+
+	} while (!comeBackToActualQuotation);
+
+	system("cls");
+}
+
+
 void View::showHistoryQuotation(const list<Quotation*>& list)
 {
 
+
+	if (list.empty())
+	{
+		showText("\n");
+		showText("INFORMACION:");
+		showText("No Hay historial del vendedor! Ve a hacer una cotizacion ya!!!");
+		showText("\n");
+	}
+	else {
+		for (const auto& quotation : list)
+		{
+			showText("\n");
+			showText(quotation->getResultQuotation());
+			showText("\n");
+		}
+	}
+
+
+	/*
 	string comeBack = "";
 
 	showText("COTIZADOR EXPRESS - HISTORIAL DE COTIZACIONES");
@@ -78,7 +178,7 @@ void View::showHistoryQuotation(const list<Quotation*>& list)
 	} while (comeBack != "3");
 
 	system("cls");
-
+*/
 
 }
 
@@ -132,6 +232,8 @@ void View::showHeaderSubMenus()
 	showText(separator);
 	showText("Presiona 3 para volver al menu principal");
 	showText(separator);
+	showText("Presiona 'H' para ver el historial del vendedor");
+	showText(separator);
 }
 
 void View::showClotheQualityMenu()
@@ -153,6 +255,14 @@ void View::showClotheQualityMenu()
 			_presenter->selectQualityClotheForQuotation(option.c_str());
 			system("cls");
 			isValidOption = true;
+		}
+		else if (option == "H" || option == "h")
+		{
+			showHistoryQuotationDuringQuotation();
+			showHeaderSubMenus();
+			showText("PASO 3: Seleccione la calidad de la prenda: ");
+			showText("1) Standard");
+			showText("2) Premium");
 		}
 		else if (option == "3") {
 			//preguntamos si quiere volver al menu principal
@@ -183,6 +293,7 @@ void View::showClotheQualityMenu()
 
 void View::showInsertAmountMenu()
 {
+	string option = "";
 	int amount;
 	bool isNotAmountMoreThanStock = false;
 
@@ -193,6 +304,8 @@ void View::showInsertAmountMenu()
 	showText(separator);
 	showText("Presiona 0 para volver al menu principal");
 	showText(separator);
+	showText("Presiona 'Y' para volver a la cotizacion actual");
+	showText(separator);
 	showText("INFORMACION: ");
 
 	do
@@ -201,8 +314,15 @@ void View::showInsertAmountMenu()
 		_presenter->showStockAvailable();
 		showText("PASO 5: Ingresa la cantidad de unidades a cotizar");
 
-		cin >> amount;
-		if (amount == 0) {
+		cin >> option;
+
+		if (option == "H" || option == "h")
+		{
+			
+			showHistoryQuotationDuringQuotation();
+			showHeaderSubMenus();
+
+		} else if(option == "0") {
 			//preguntamos si quiere volver al menu principal
 			//si dice que si volvemos al menu principal
 			//si dice que no, volvemos a preguntar por la cotizacion
@@ -215,7 +335,7 @@ void View::showInsertAmountMenu()
 			showText(separator);
 			showText("INFORMACION: ");
 
-		}else if (amount > _presenter->getClotheAmountFromStock())
+		}else if (stoi(option) > _presenter->getClotheAmountFromStock())
 		{
 			showHeaderSubMenus();
 			showText("INFORMACION: ");
@@ -224,6 +344,9 @@ void View::showInsertAmountMenu()
 
 		}
 		else {
+
+			amount = stoi(option);
+
 			_presenter->insertClotheAmountForQuotation(amount);
 			isNotAmountMoreThanStock = true;
 			showText(separator);
@@ -236,16 +359,33 @@ void View::showInsertAmountMenu()
 void View::showInsertUnitaryPriceMenu()
 {
 	double unitaryPrice;
-
+	string option = "";
+	bool comeBackToActualQuotation = false;
 	//solo se puede ingresar numeros
 
 	showHeaderSubMenus();
 	showText("PASO 4: Ingrese el precio unitario de la prenda a cotizar: ");
 
-	cin >> unitaryPrice;
-	_presenter->insertUnitaryPriceForQuotation(unitaryPrice);
-	showText(separator);
-	system("cls");
+	do
+	{
+		cin >> option;
+
+		if (option == "H" || option == "h")
+		{
+			showHistoryQuotationDuringQuotation();
+			showHeaderSubMenus();
+			showText("PASO 4: Ingrese el precio unitario de la prenda a cotizar: ");
+		}
+		else {
+
+			unitaryPrice = stod(option);
+			_presenter->insertUnitaryPriceForQuotation(unitaryPrice);
+			comeBackToActualQuotation = true;
+			showText(separator);
+			system("cls");
+		}
+
+	} while (!comeBackToActualQuotation);
 }
 
 
@@ -301,8 +441,15 @@ void View::showChoosingClotheMenu()
 									_presenter->selectTypeShirtNeckForQuotation(option.c_str());
 									system("cls");
 									isValidNeck = true;
-								}
-								else if (option == "3") {
+								}else if (option == "H" || option == "h")
+								{
+									showHistoryQuotationDuringQuotation();
+									showHeaderSubMenus();
+									showText("PASO 2.b: La camisa a cotizar, ¿Es cuello mao?: ");
+									showText("1) Si");
+									showText("2) No");
+
+								}else if (option == "3") {
 
 									//preguntamos si quiere volver al menu principal
 									//si dice que si volvemos al menu principal
@@ -320,7 +467,7 @@ void View::showChoosingClotheMenu()
 									showText("INFORMACION:");
 									showText("Opcion invalida, vuelva a ingresar un valor");
 									showText(separator);
-									showText("PASO 2.a: La camisa a cotizar, ¿Es manga corta?: ");
+									showText("PASO 2.b: La camisa a cotizar, ¿Es cuello mao?: ");
 									showText("1) Si");
 									showText("2) No");
 								}
@@ -331,6 +478,14 @@ void View::showChoosingClotheMenu()
 
 							isValid = true;
 
+						}
+						else if (option == "H" || option == "h")
+						{
+							showHistoryQuotationDuringQuotation();
+							showHeaderSubMenus();
+							showText("PASO 2.a: La camisa a cotizar, ¿Es manga corta?: ");
+							showText("1) Si");
+							showText("2) No");
 						}
 						else if (option == "3") {
 
@@ -377,6 +532,13 @@ void View::showChoosingClotheMenu()
 							system("cls");
 							isTypePantsValidOption = true;
 						}
+						else if (option == "H" || option == "h") {
+							showHistoryQuotationDuringQuotation();
+							showHeaderSubMenus();
+							showText("PASO 2: El pantalon a cotizar, ¿Es Chupin?: ");
+							showText("1) Si");
+							showText("2) No");
+						}
 						else if (option == "3") {
 							//preguntamos si quiere volver al menu principal
 							//si dice que si volvemos al menu principal
@@ -414,6 +576,13 @@ void View::showChoosingClotheMenu()
 				showText("2) Pantalon");
 				showText(separator);
 
+			}
+			else if (option == "H" || option == "h") {
+				showHistoryQuotationDuringQuotation();
+				showHeaderSubMenus();
+				showText("PASO 1: Selecciona la prenda a cotizar: ");
+				showText("1) Camisa");
+				showText("2) Pantalon");
 			}
 			else {
 				showHeaderSubMenus();
@@ -522,7 +691,7 @@ void View::optionSelected(const char* option, bool& exitCondition)
 
 	if (str_option == "1")
 	{
-		_presenter->showHistoryQuotation();
+		showHistoryQuotationInMainMenu();
 		std::cin.get();
 		exitCondition = false;
 
