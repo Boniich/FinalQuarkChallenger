@@ -16,6 +16,10 @@ Shop::Shop() {
 Shop::~Shop() 
 {
 	delete _quotation;
+	for (Clothes* clothe : _clothes) { delete clothe;};
+	_clothes.clear();
+	for (Quotation* history : _quotationHistory) { delete history; };
+	_quotationHistory.clear();
 }
 
 
@@ -108,7 +112,7 @@ int Shop::getClotheAmountFromStock()
 
 	for (Clothes* clothe : _clothes)
 	{
-
+		
 		if (clothe->showTypeChothe() == getQuotationData()->getClotheData()->showTypeChothe()
 			&& clothe->showQuality() == getQuotationData()->getClotheData()->showQuality())
 		{

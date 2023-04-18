@@ -27,7 +27,7 @@ Quotation::Quotation(
 
 Quotation::~Quotation()
 {
-
+	delete _clothes;
 }
 
 string Quotation::getResultQuotation()
