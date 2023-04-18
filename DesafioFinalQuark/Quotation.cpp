@@ -53,7 +53,7 @@ string Quotation::getResultQuotation()
 
 	string unitaryPrice = "Precio Unitario: $" + to_string(_clothes->showUnitaryPrice());
 	string amount = "Cantidades de unidades cotizadas: " + to_string(getAmount());
-	string finalPrice = "Precio final: " + to_string(_finalPrice);
+	string finalPrice = "Precio final: $" + to_string(_finalPrice);
 
 	return  id + "\n" 
 		+ date + "\n" 
