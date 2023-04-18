@@ -9,15 +9,17 @@ class Quotation;
 class Seller
 {
 private:
-	int sellerId = 1;
-	string name = "Carlos";
-	string lastName = "Tierra";
+	int _sellerId;
+	string _name;
+	string _lastName;
 
 public:
 	Seller();
 	~Seller();
 	string showSellerFullName();
 	int showSellerId();
+	void setSellerFullName(string name, string lastName);
+	void setSellerId(const int sellerId);
 
 };
 

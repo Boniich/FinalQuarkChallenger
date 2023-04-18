@@ -19,6 +19,13 @@ Presenter::~Presenter()
 	delete _shop;
 }
 
+
+void Presenter::loadShopAndSellerData()
+{
+	_shop->loadShopAndSellerData();
+}
+
+
 void Presenter::showInfoSeller() {
 
 	string sellerName = _shop->showInfoSeller();

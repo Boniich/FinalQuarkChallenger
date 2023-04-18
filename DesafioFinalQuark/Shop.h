@@ -14,15 +14,18 @@ class Quotation;
 class Shop
 {
 private:
-	string name = "Tienda 1";
-	string direction = "Calle falsa 123";
+	string _name;
+	string _direction;
 	Seller _seller;
 	list<Clothes*> _clothes = {};
 	Quotation* _quotation = nullptr;
 	list<Quotation*> _quotationHistory = {};
+	void loadShopData();
+	void loadSellerData();
 public:
 	Shop();
 	~Shop();
+	void loadShopAndSellerData();
 	string showInfoShop();
 	string showInfoSeller();
 	void loadStockClothes();

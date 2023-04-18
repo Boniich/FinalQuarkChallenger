@@ -18,9 +18,29 @@ Shop::~Shop()
 	delete _quotation;
 }
 
+
+void Shop::loadShopData()
+{
+	_name = "Tienda 1";
+	_direction = "Calle false 123";
+}
+
+void Shop::loadSellerData()
+{
+	_seller.setSellerFullName("Antonio", "Quark");
+	_seller.setSellerId(1);
+}
+
+void Shop::loadShopAndSellerData()
+{
+	loadShopData();
+	loadSellerData();
+}
+
+
 string Shop::showInfoShop()
 {
-	return name + " | " + direction;
+	return _name + " | " + _direction;
 }
 
 string Shop::showInfoSeller()

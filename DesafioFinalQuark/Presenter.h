@@ -45,6 +45,8 @@ public:
 	void showQuotationResult();
 
 	void showHistoryQuotation();
+
+	void loadShopAndSellerData();
 	
 	
 };

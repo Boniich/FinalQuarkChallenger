@@ -10,6 +10,7 @@ const string separator = "---------------------------------------------";
 View::View()
 {
 	_presenter = new Presenter(this);
+	_presenter->loadShopAndSellerData();
 	_presenter->loadStockClothes();
 	showInitialMenu();
 }
